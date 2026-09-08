@@ -16,7 +16,7 @@ val keystoreProperties = Properties().apply {
 }
 
 android {
-    namespace = "com.example.app_blueprint"
+    namespace = "com.example.ironclock"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -30,7 +30,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.app_blueprint"
+        applicationId = "com.example.ironclock"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

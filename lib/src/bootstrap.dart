@@ -3,6 +3,8 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 
 import '../firebase_options.dart';
+import 'services/auth_service.dart';
+import 'services/cloud_workout_repository.dart';
 import 'services/firestore_notice_repository.dart';
 import 'services/push_notification_service.dart';
 
@@ -22,6 +24,8 @@ class AppBootstrap {
     this.errorMessage,
     this.noticeRepository,
     this.pushNotificationService,
+    this.authService,
+    this.cloudWorkoutRepository,
   });
 
   final bool firebaseReady;
@@ -29,6 +33,8 @@ class AppBootstrap {
   final String? errorMessage;
   final FirestoreNoticeRepository? noticeRepository;
   final PushNotificationService? pushNotificationService;
+  final AuthService? authService;
+  final CloudWorkoutRepository? cloudWorkoutRepository;
 
   static Future<AppBootstrap> initialize() async {
     if (!FirebaseRuntimeConfig.isConfigured) {
@@ -57,6 +63,8 @@ class AppBootstrap {
             'reads and request an FCM token from this starter screen.',
         noticeRepository: FirestoreNoticeRepository(),
         pushNotificationService: pushNotificationService,
+        authService: AuthService(),
+        cloudWorkoutRepository: CloudWorkoutRepository(),
       );
     } catch (error, stackTrace) {
       debugPrint('Firebase bootstrap failed: $error');

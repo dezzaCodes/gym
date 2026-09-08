@@ -1,4 +1,4 @@
-package com.example.app_blueprint
+package com.example.ironclock
 
 import io.flutter.embedding.android.FlutterActivity
 
