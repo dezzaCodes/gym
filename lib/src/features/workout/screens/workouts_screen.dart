@@ -32,7 +32,17 @@ class WorkoutsScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Your workouts', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.text)),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text('Your workouts', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.text)),
+              TextButton.icon(
+                onPressed: app.openExercises,
+                icon: const Icon(Icons.menu_book_outlined, size: 18, color: AppColors.accent),
+                label: const Text('Exercises', style: TextStyle(color: AppColors.accent)),
+              ),
+            ],
+          ),
           const SizedBox(height: 8),
           ...savedTemplates.map((t) {
             final isActive = t.id == app.data.activeTemplateId;

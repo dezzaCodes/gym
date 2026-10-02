@@ -11,7 +11,7 @@ import 'models.dart';
 import 'random_workout.dart';
 import 'storage.dart';
 
-enum Screen { home, workouts, edit, active, summary, progress, stats, badges }
+enum Screen { home, workouts, edit, active, summary, progress, stats, badges, exercises, exerciseDetail }
 
 enum SessionPhase { working, resting }
 
@@ -198,6 +198,7 @@ class WorkoutSummary {
   int streakBonus;
   int streak;
   List<WorkoutBadge> unlockedNow;
+  List<CompletedExercise> completedExercises;
 
   WorkoutSummary({
     required this.templateId,
@@ -210,6 +211,7 @@ class WorkoutSummary {
     required this.streakBonus,
     required this.streak,
     required this.unlockedNow,
+    required this.completedExercises,
   });
 }
 
@@ -227,6 +229,7 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
   WorkoutSummary? summary;
   String? editingTemplateId;
   Screen editReturn = Screen.workouts;
+  String? selectedExerciseName;
   bool loaded = false;
 
   final AuthService? _auth;
@@ -239,6 +242,7 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
   final RestNotificationService _restNotifications = RestNotificationService();
 
   Timer? _timer;
+  DateTime? _lastTick;
 
   // A counter appended to generated ids so two calls landing in the same
   // millisecond (e.g. rapid double-taps) still get distinct ids, rather
@@ -263,13 +267,7 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
         final restored = WorkoutSession.fromJson(sessionJson);
         // Account for real time that passed while the app was closed, so
         // the workout doesn't resume as if no time had elapsed.
-        if (!restored.paused) {
-          final gap = DateTime.now().difference(restored.lastActiveAt).inSeconds;
-          if (gap > 0) {
-            restored.elapsed += gap;
-            if (restored.phase == SessionPhase.resting) restored.restElapsed += gap;
-          }
-        }
+        _reconcileElapsedGap(restored);
         session = restored;
         screen = Screen.active;
         _startTimer();
@@ -302,9 +300,39 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.paused ||
         state == AppLifecycleState.inactive ||
-        state == AppLifecycleState.detached) {
+        state == AppLifecycleState.detached ||
+        state == AppLifecycleState.hidden) {
       unawaited(_persistSession());
+    } else if (state == AppLifecycleState.resumed) {
+      // The OS commonly suspends or throttles timers while backgrounded,
+      // so simply letting the periodic timer carry on from where it left
+      // off would leave the clock behind by however long the app was away
+      // — same gap the cold-start path in `_load` accounts for, just
+      // triggered by a resume instead of a fresh launch.
+      final s = session;
+      if (s != null && _reconcileElapsedGap(s)) {
+        unawaited(_persistSession());
+        notifyListeners();
+      }
     }
+  }
+
+  /// Adds whatever real time passed since [s.lastActiveAt] onto its elapsed
+  /// counters, so a gap spent backgrounded or fully closed doesn't make the
+  /// workout resume as if no time had gone by. Bumps [s.lastActiveAt] (and
+  /// [_lastTick], so the periodic timer's own delta-based catch-up in
+  /// [_startTimer] doesn't then add the same gap a second time on its next
+  /// tick) to now whenever it applies a gap. Returns whether anything
+  /// changed.
+  bool _reconcileElapsedGap(WorkoutSession s) {
+    if (s.paused) return false;
+    final gap = DateTime.now().difference(s.lastActiveAt).inSeconds;
+    if (gap <= 0) return false;
+    s.elapsed += gap;
+    if (s.phase == SessionPhase.resting) s.restElapsed += gap;
+    s.lastActiveAt = DateTime.now();
+    _lastTick = s.lastActiveAt;
+    return true;
   }
 
   Future<void> persist() async {
@@ -461,6 +489,23 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
     notifyListeners();
   }
 
+  void openExercises() {
+    screen = Screen.exercises;
+    notifyListeners();
+  }
+
+  void openExerciseDetail(String name) {
+    selectedExerciseName = name;
+    screen = Screen.exerciseDetail;
+    notifyListeners();
+  }
+
+  void closeExerciseDetail() {
+    selectedExerciseName = null;
+    screen = Screen.exercises;
+    notifyListeners();
+  }
+
   void selectTemplate(String id) {
     data.activeTemplateId = id;
     screen = Screen.home;
@@ -487,11 +532,28 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
 
   void _startTimer() {
     _timer?.cancel();
+    _lastTick = DateTime.now();
     _timer = Timer.periodic(const Duration(seconds: 1), (_) {
       final s = session;
-      if (s == null || s.paused) return;
-      s.elapsed += 1;
-      if (s.phase == SessionPhase.resting) s.restElapsed += 1;
+      final now = DateTime.now();
+      // A real elapsed-time delta rather than a flat +1: browsers throttle
+      // (or fully suspend) a background tab's timers, so a hidden tab's
+      // ticks can arrive minutes apart instead of every second — using the
+      // actual gap here catches the clock up on the very next tick instead
+      // of depending on a lifecycle "resumed" event, which web doesn't
+      // reliably deliver for a tab switch the way mobile does for
+      // backgrounding.
+      final delta = now.difference(_lastTick!).inSeconds;
+      _lastTick = now;
+      if (s == null || s.paused || delta <= 0) return;
+      s.elapsed += delta;
+      if (s.phase == SessionPhase.resting) s.restElapsed += delta;
+      // Kept fresh on every tick (not just the throttled disk write below)
+      // so that if a lifecycle "resumed" event reconciles the gap before
+      // this timer gets a chance to fire its own catch-up tick, it has an
+      // accurate, recent baseline to measure from rather than whatever was
+      // last written to disk up to 5 seconds ago.
+      s.lastActiveAt = now;
       notifyListeners();
       if (s.elapsed % 5 == 0) unawaited(_persistSession());
     });
@@ -741,10 +803,12 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
   /// Whether the current exercise can be swapped for another one in the same
   /// muscle group. Only offered before the first set of the exercise is
   /// completed — swapping mid-exercise would leave its logged sets split
-  /// across two different exercise names.
+  /// across two different exercise names. That includes the rest taken
+  /// right after the previous exercise's last set: by then `exIndex` has
+  /// already moved on, so it's this exercise's upcoming first set too.
   bool canSwapCurrentExercise() {
     final s = session;
-    if (s == null || s.phase != SessionPhase.working || s.setIndex != 1) return false;
+    if (s == null || s.setIndex != 1) return false;
     final tmpl = templateById(s.templateId);
     return _swapCandidates(tmpl, s).isNotEmpty;
   }
@@ -753,7 +817,7 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
   /// muscle group, for this session only — the saved template is untouched.
   void swapCurrentExercise() {
     final s = session;
-    if (s == null || s.phase != SessionPhase.working || s.setIndex != 1) return;
+    if (s == null || s.setIndex != 1) return;
     final tmpl = templateById(s.templateId);
     final current = exerciseAt(tmpl, s, s.exIndex);
 
@@ -787,6 +851,9 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
     };
     return ExerciseLibrary.byGroup[group]!
         .where((name) => !alreadyUsed.contains(name) && !data.excludedExercises.contains(name))
+        .where((name) => !tmpl.bodyweightOnly || ExerciseLibrary.bodyweightOnly.contains(name))
+        .where((name) => !tmpl.favoritesOnly || data.favoriteExercises.contains(name))
+        .where((name) => !tmpl.staleOnly || isExerciseStale(name))
         .toList();
   }
 
@@ -802,12 +869,30 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
     persist();
   }
 
+  bool isExerciseFavorite(String name) => data.favoriteExercises.contains(name);
+
+  void toggleFavoriteExercise(String name) {
+    if (!data.favoriteExercises.remove(name)) {
+      data.favoriteExercises.add(name);
+    }
+    persist();
+  }
+
+  /// Whether [name] hasn't been trained in a while — never logged, or its
+  /// most recent instance is more than two weeks old.
+  bool isExerciseStale(String name) {
+    final hist = data.exerciseHistory[name];
+    if (hist == null || hist.isEmpty) return true;
+    final latest = hist.map((i) => i.date).reduce((a, b) => a.compareTo(b) > 0 ? a : b);
+    return latest.compareTo(_dateString(daysAgo: 14)) < 0;
+  }
+
   /// Marks the current exercise as excluded from now on, then immediately
   /// swaps in a replacement so the workout can continue — for when an
   /// exercise you can't do (no equipment, an injury, etc.) comes up.
   void markCurrentExerciseCantDo() {
     final s = session;
-    if (s == null || s.phase != SessionPhase.working || s.setIndex != 1) return;
+    if (s == null || s.setIndex != 1) return;
     final tmpl = templateById(s.templateId);
     final current = exerciseAt(tmpl, s, s.exIndex);
     excludeExercise(current.name);
@@ -915,6 +1000,7 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
       streakBonus: streakBonus,
       streak: streak,
       unlockedNow: badgeEvaluation.newlyUnlocked,
+      completedExercises: completedExercises,
     );
     session = null;
     screen = Screen.summary;
@@ -970,6 +1056,76 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
     return bestCount;
   }
 
+  /// The most recent date any exercise in each region of [group] was
+  /// logged, keyed by region label — so region selection can prioritize
+  /// whichever part of the muscle group hasn't been trained in the
+  /// longest time (or never, which sorts first of all).
+  Map<String, String> _lastTrainedByRegion(MuscleGroup group) {
+    final lastTrained = <String, String>{};
+    data.exerciseHistory.forEach((exerciseName, instances) {
+      if (instances.isEmpty) return;
+      if (ExerciseLibrary.groupOf(exerciseName) != group) return;
+      final region = ExerciseLibrary.regionOf[exerciseName];
+      if (region == null) return;
+
+      final latest = instances.map((i) => i.date).reduce((a, b) => a.compareTo(b) > 0 ? a : b);
+      final existing = lastTrained[region];
+      if (existing == null || latest.compareTo(existing) > 0) {
+        lastTrained[region] = latest;
+      }
+    });
+    return lastTrained;
+  }
+
+  /// An exercise pool for [group], ordered so a short workout still
+  /// samples across every region of the muscle group before repeating
+  /// one, instead of the flat random pick risking e.g. three flat-bench
+  /// chest variants and no fly or dip work. Regions are visited in
+  /// least-recently-trained order first (never-trained regions first of
+  /// all), so when there isn't room for every region, the most neglected
+  /// ones win the available slots; exercises within a region are
+  /// otherwise shuffled.
+  List<String> _regionOrderedPool(MuscleGroup group, math.Random rng, bool Function(String) isEligible) {
+    final regions = ExerciseLibrary.regionsOf(group);
+    final lastTrained = _lastTrainedByRegion(group);
+    final tieBreak = {for (final region in regions) region: rng.nextDouble()};
+
+    final byRegion = {
+      for (final region in regions)
+        region: (ExerciseLibrary.byGroup[group]!
+                .where((name) => ExerciseLibrary.regionOf[name] == region && isEligible(name))
+                .toList()
+              ..shuffle(rng)),
+    };
+
+    final orderedRegions = regions.toList()
+      ..sort((a, b) {
+        final dateA = lastTrained[a];
+        final dateB = lastTrained[b];
+        if (dateA == null && dateB == null) return tieBreak[a]!.compareTo(tieBreak[b]!);
+        if (dateA == null) return -1;
+        if (dateB == null) return 1;
+        if (dateA != dateB) return dateA.compareTo(dateB);
+        return tieBreak[a]!.compareTo(tieBreak[b]!);
+      });
+
+    // Round-robin merge: one exercise from each region per pass, so the
+    // front of the merged list covers every region before any region
+    // gets a second pick.
+    final merged = <String>[];
+    var progress = true;
+    while (progress) {
+      progress = false;
+      for (final region in orderedRegions) {
+        final pool = byRegion[region]!;
+        if (pool.isEmpty) continue;
+        merged.add(pool.removeAt(0));
+        progress = true;
+      }
+    }
+    return merged;
+  }
+
   /// Builds a new workout template from a random selection of exercises
   /// matching [request], saves it, and returns its id so the caller can open
   /// it for review.
@@ -977,15 +1133,24 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
     final groups = _resolveMuscleGroups(request);
     final rng = math.Random();
 
-    final desiredCount = _desiredExerciseCount(request.targetMinutes);
+    // A full-body workout should cover every major muscle group without
+    // repeating one, so it can never ask for more exercises than there are
+    // groups to draw from — a longer target duration just falls short of
+    // the request rather than doubling up on a group.
+    final desiredCount =
+        request.fullBody ? math.min(_desiredExerciseCount(request.targetMinutes), groups.length) : _desiredExerciseCount(request.targetMinutes);
 
     final pools = {
       for (final group in groups)
-        group: (ExerciseLibrary.byGroup[group]!
-                .where((name) => !data.excludedExercises.contains(name))
-                .where((name) => !request.bodyweightOnly || ExerciseLibrary.bodyweightOnly.contains(name))
-                .toList()
-              ..shuffle(rng)),
+        group: _regionOrderedPool(
+          group,
+          rng,
+          (name) =>
+              !data.excludedExercises.contains(name) &&
+              (!request.bodyweightOnly || ExerciseLibrary.bodyweightOnly.contains(name)) &&
+              (!request.favoritesOnly || data.favoriteExercises.contains(name)) &&
+              (!request.staleOnly || isExerciseStale(name)),
+        ),
     };
     final groupOrder = groups.toList()..shuffle(rng);
 
@@ -1020,6 +1185,9 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
       // Not shown on the Workouts screen until the user explicitly saves
       // it, from the summary screen or the Stats recent-sessions list.
       isTemporary: true,
+      bodyweightOnly: request.bodyweightOnly,
+      favoritesOnly: request.favoritesOnly,
+      staleOnly: request.staleOnly,
     );
     // Reflect the exercises actually chosen, not just the requested
     // duration — the two can differ once the exercise pool runs out or
@@ -1052,6 +1220,56 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
     if (template == null || !template.isTemporary) return;
     template.isTemporary = false;
     persist();
+  }
+
+  /// Whether the exercise at [exerciseId] within [templateId] has any
+  /// same-muscle-group alternative left to swap in.
+  bool canSwapTemplateExercise(String templateId, String exerciseId) {
+    final tmpl = _findTemplate(templateId);
+    if (tmpl == null) return false;
+    return _templateSwapCandidates(tmpl, exerciseId).isNotEmpty;
+  }
+
+  /// Permanently replaces one exercise in a saved template with a random
+  /// alternative from the same muscle group — unlike [swapCurrentExercise],
+  /// which only swaps for the current session, this edits the template
+  /// itself, so every future workout from this plan uses the replacement
+  /// too. No-op if the template, exercise, or a candidate can't be found.
+  void swapTemplateExercise(String templateId, String exerciseId) {
+    final tmpl = _findTemplate(templateId);
+    if (tmpl == null) return;
+    final idx = tmpl.exercises.indexWhere((e) => e.id == exerciseId);
+    if (idx == -1) return;
+    final candidates = _templateSwapCandidates(tmpl, exerciseId);
+    if (candidates.isEmpty) return;
+    candidates.shuffle();
+    final current = tmpl.exercises[idx];
+    tmpl.exercises[idx] = ExerciseTemplate(
+      id: current.id,
+      name: candidates.first,
+      sets: current.sets,
+      setSeconds: current.setSeconds,
+      restSeconds: current.restSeconds,
+    );
+    persist();
+  }
+
+  List<String> _templateSwapCandidates(WorkoutTemplate tmpl, String exerciseId) {
+    String? currentName;
+    for (final e in tmpl.exercises) {
+      if (e.id == exerciseId) currentName = e.name;
+    }
+    if (currentName == null) return const [];
+    final group = ExerciseLibrary.groupOf(currentName);
+    if (group == null) return const [];
+
+    final alreadyUsed = {for (final e in tmpl.exercises) e.name};
+    return ExerciseLibrary.byGroup[group]!
+        .where((name) => !alreadyUsed.contains(name) && !data.excludedExercises.contains(name))
+        .where((name) => !tmpl.bodyweightOnly || ExerciseLibrary.bodyweightOnly.contains(name))
+        .where((name) => !tmpl.favoritesOnly || data.favoriteExercises.contains(name))
+        .where((name) => !tmpl.staleOnly || isExerciseStale(name))
+        .toList();
   }
 
   Set<MuscleGroup> _resolveMuscleGroups(RandomWorkoutRequest request) {

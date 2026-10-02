@@ -47,6 +47,16 @@ class WorkoutTemplate {
   // to the user's workout list yet; such templates are hidden from the
   // Workouts screen until saved.
   bool isTemporary;
+  // True when this workout was generated with the "no weights (bodyweight
+  // only)" option — kept so exercise swaps mid-workout stay bodyweight-only
+  // too, instead of offering a swap that needs equipment.
+  bool bodyweightOnly;
+  // True when generated with "Favorites only" — swaps mid-workout stay
+  // restricted to favorited exercises too.
+  bool favoritesOnly;
+  // True when generated with "Not done in a while" — swaps mid-workout
+  // stay restricted to exercises that are still stale, too.
+  bool staleOnly;
 
   WorkoutTemplate({
     required this.id,
@@ -54,6 +64,9 @@ class WorkoutTemplate {
     required this.targetMinutes,
     required this.exercises,
     this.isTemporary = false,
+    this.bodyweightOnly = false,
+    this.favoritesOnly = false,
+    this.staleOnly = false,
   });
 
   WorkoutTemplate copy() => WorkoutTemplate(
@@ -62,6 +75,9 @@ class WorkoutTemplate {
         targetMinutes: targetMinutes,
         exercises: exercises.map((e) => e.copy()).toList(),
         isTemporary: isTemporary,
+        bodyweightOnly: bodyweightOnly,
+        favoritesOnly: favoritesOnly,
+        staleOnly: staleOnly,
       );
 
   factory WorkoutTemplate.fromJson(Map<String, dynamic> json) => WorkoutTemplate(
@@ -72,6 +88,9 @@ class WorkoutTemplate {
             .map((e) => ExerciseTemplate.fromJson(e as Map<String, dynamic>))
             .toList(),
         isTemporary: json['isTemporary'] as bool? ?? false,
+        bodyweightOnly: json['bodyweightOnly'] as bool? ?? false,
+        favoritesOnly: json['favoritesOnly'] as bool? ?? false,
+        staleOnly: json['staleOnly'] as bool? ?? false,
       );
 
   Map<String, dynamic> toJson() => {
@@ -80,6 +99,9 @@ class WorkoutTemplate {
         'targetMinutes': targetMinutes,
         'exercises': exercises.map((e) => e.toJson()).toList(),
         'isTemporary': isTemporary,
+        'bodyweightOnly': bodyweightOnly,
+        'favoritesOnly': favoritesOnly,
+        'staleOnly': staleOnly,
       };
 
   static List<WorkoutTemplate> samples() => [
@@ -270,6 +292,10 @@ class AppData {
   /// swaps, e.g. because the user doesn't have the equipment for them.
   Set<String> excludedExercises;
 
+  /// Exercise names the user has marked as favorites — browsable from the
+  /// exercise glossary, and selectable as a random workout filter.
+  Set<String> favoriteExercises;
+
   AppData({
     Profile? profile,
     List<WorkoutTemplate>? templates,
@@ -277,11 +303,13 @@ class AppData {
     List<SessionHistoryEntry>? history,
     Map<String, List<ExerciseHistoryInstance>>? exerciseHistory,
     Set<String>? excludedExercises,
+    Set<String>? favoriteExercises,
   })  : profile = profile ?? Profile(),
         templates = templates ?? WorkoutTemplate.samples(),
         history = history ?? [],
         exerciseHistory = exerciseHistory ?? {},
-        excludedExercises = excludedExercises ?? {};
+        excludedExercises = excludedExercises ?? {},
+        favoriteExercises = favoriteExercises ?? {};
 
   factory AppData.fromJson(Map<String, dynamic> json) => AppData(
         profile: json['profile'] != null ? Profile.fromJson(json['profile']) : Profile(),
@@ -298,6 +326,9 @@ class AppData {
         excludedExercises: json['excludedExercises'] != null
             ? (json['excludedExercises'] as List).map((e) => e as String).toSet()
             : {},
+        favoriteExercises: json['favoriteExercises'] != null
+            ? (json['favoriteExercises'] as List).map((e) => e as String).toSet()
+            : {},
       );
 
   Map<String, dynamic> toJson() => {
@@ -307,6 +338,7 @@ class AppData {
         'history': history.map((e) => e.toJson()).toList(),
         'exerciseHistory': exerciseHistory.map((key, value) => MapEntry(key, value.map((e) => e.toJson()).toList())),
         'excludedExercises': excludedExercises.toList(),
+        'favoriteExercises': favoriteExercises.toList(),
       };
 }
 

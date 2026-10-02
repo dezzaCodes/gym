@@ -1,0 +1,1305 @@
+{
+  "Bench Press": {
+    "howTo": [
+      "Setup: Lie on a flat bench with eyes directly under the bar.",
+      "Setup: Feet flat on the ground, knees bent at ~90°.",
+      "Setup: Grip the bar with a slightly wider than shoulder-width grip (wrists stacked over elbows).",
+      "Setup: Retract and depress the scapulae to stabilize the upper back.",
+      "Setup: Maintain a natural arch in the lower back.",
+      "Unrack and Descent: Unrack the bar and bring it over your chest, elbows fully extended.",
+      "Unrack and Descent: Inhale, brace your core, and lower the bar slowly to the lower portion of your chest (around nipple level), keeping elbows at ~45° from the torso.",
+      "Press Phase: Push the bar upward in a slight arc back toward your eyes.",
+      "Press Phase: Exhale as you drive through the chest and triceps , locking out the elbows at the top.",
+      "Reset and Repeat: Maintain upper back tightness and repeat for prescribed reps."
+    ],
+    "tips": [
+      "Keep your shoulder blades retracted throughout the lift for better joint stability.",
+      "Do not flare your elbows excessively —aim for ~45°–60° from the body.",
+      "Maintain a tight glute and leg drive to anchor your base.",
+      "Keep wrist alignment neutral to avoid strain.",
+      "Lower the bar under control; don’t bounce it off the chest."
+    ],
+    "mistakes": [
+      "Letting the elbows flare too far out, which increases shoulder joint stress.",
+      "Lifting the feet off the ground , reducing base stability.",
+      "Allowing the lower back to over-arch excessively , risking lumbar stress.",
+      "Bouncing the bar off the chest for momentum.",
+      "Inconsistent bar path , which reduces mechanical efficiency."
+    ]
+  },
+  "Incline Bench Press": {
+    "howTo": [
+      "Set up the incline bench at the desired angle. (30 to 45 degrees)",
+      "Load the barbell with an appropriate weight for your fitness level and goals.",
+      "Lie down on the bench with your feet firmly on the ground and your head resting on the bench.",
+      "Grab the barbell with a grip slightly wider than shoulder-width apart.",
+      "Unrack the barbell and bring it down to your upper chest, with your elbows flared out to the sides.",
+      "Press the barbell back up to the starting position, exhaling as you push.",
+      "Repeat for the desired number of reps."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Decline Bench Press": {
+    "howTo": [
+      "Setup: Adjust a decline bench to an angle of 15 to 30 degrees.",
+      "Setup: Lie down and secure your feet under the foot pads to maintain stability.",
+      "Grab the barbell with an overhand grip, hands slightly wider than shoulder-width apart.",
+      "Unrack the barbell and hold it with arms fully extended above your chest.",
+      "Slowly lower the barbell toward your lower chest, keeping your elbows at about a 45-degree angle.",
+      "Lower until the bar lightly touches your chest without bouncing.",
+      "Push the barbell back up in a controlled motion until your arms are fully extended.",
+      "Engage your chest, shoulders, and triceps to complete the lift.",
+      "Perform 3 to 5 sets of 6 to 12 reps, depending on your training goals."
+    ],
+    "tips": [
+      "Keep your wrists straight and avoid excessive bending to prevent injury.",
+      "Maintain core engagement to stabilize your body throughout the movement.",
+      "Avoid bouncing the bar off your chest as this reduces effectiveness and increases injury risk.",
+      "Use a spotter if lifting heavy weights to ensure safety.",
+      "Exhale as you press up and inhale as you lower the bar ."
+    ],
+    "mistakes": [
+      "Arching the Back Excessively: Maintain a neutral spine to prevent strain on the lower back.",
+      "Improper Grip Width: A grip that is too narrow or too wide can limit effectiveness and cause wrist or shoulder strain.",
+      "Rushing the Movement: Lower and press the bar with control to maximize muscle engagement.",
+      "Lifting Too Heavy Too Soon: Start with moderate weight to perfect your form before increasing resistance.",
+      "Lack of Full Range of Motion: Failing to lower the bar to the chest reduces the effectiveness of the exercise."
+    ]
+  },
+  "Dumbbell Bench Press": {
+    "howTo": [
+      "Setup: Lie flat on a bench with your feet firmly planted on the ground.",
+      "Setup: Hold a dumbbell in each hand, resting them on your thighs.",
+      "Starting Position: Using a controlled motion, bring the dumbbells up to shoulder level while sitting on the bench. This is your starting position.",
+      "Starting Position: Your palms should be facing forward, and your wrists should be in a neutral position.",
+      "Execution: Inhale and engage your core muscles.",
+      "Execution: Slowly lower the dumbbells towards your chest in a controlled manner, keeping your elbows at about a 45-degree angle to your body. Your upper arms should be parallel to the floor.",
+      "Execution: Lower the dumbbells until your elbows are slightly below the bench level or until you feel a gentle stretch in your chest muscles.",
+      "Pushing Phase: Exhale and push the dumbbells back up to the starting position, fully extending your arms without locking your elbows.",
+      "Pushing Phase: Keep your chest engaged and maintain a slight arch in your lower back throughout the movement.",
+      "Repeat: Perform the desired number of repetitions, maintaining proper form and control."
+    ],
+    "tips": [
+      "Start with a weight that you can lift comfortably while maintaining proper form. Gradually increase the weight as you become more experienced and stronger.",
+      "Focus on a controlled movement both during the lowering and pushing phases to maximize muscle engagement and minimize the risk of injury.",
+      "Keep your shoulder blades retracted (pinched together) to provide stability and support to your shoulders."
+    ],
+    "mistakes": []
+  },
+  "Incline Dumbbell Press": {
+    "howTo": [
+      "Adjust a bench to an incline angle of 30–45 degrees.",
+      "Grab a dumbbell in each hand and sit on the bench, feet flat on the floor.",
+      "Rest the dumbbells on your thighs, then lie back while bringing the weights to shoulder level.",
+      "Position the dumbbells with your palms facing forward and elbows bent at about 90 degrees."
+    ],
+    "tips": [],
+    "mistakes": [
+      "Using Too Much Weight : Can compromise form and increase injury risk.",
+      "Flared Elbows : Puts unnecessary strain on the shoulders; keep elbows at a 45-degree angle.",
+      "Overarching the Back : Maintain a slight arch but avoid excessive lumbar extension.",
+      "Rushed Reps : Use a controlled tempo for better muscle engagement."
+    ]
+  },
+  "Decline Dumbbell Press": {
+    "howTo": [
+      "Set a decline bench at a 15–30 degree angle.",
+      "Grab a pair of dumbbells and sit on the bench with your feet secured under the support pads.",
+      "Lie back with the dumbbells held at shoulder level, palms facing forward, and elbows bent at about a 90-degree angle."
+    ],
+    "tips": [
+      "Focus on Form : Prioritize proper form over heavy weights to maximize effectiveness and safety.",
+      "Squeeze at the Top : Contract your chest muscles at the peak of the movement for optimal engagement.",
+      "Controlled Tempo : Use a slow and controlled tempo to maintain tension on the chest muscles.",
+      "Pair with Incline and Flat Presses : Combine with other bench press variations for complete chest development."
+    ],
+    "mistakes": [
+      "Flared Elbows : Keep elbows at a 45-degree angle to reduce shoulder strain.",
+      "Excessive Weight : Using too much weight can compromise form and increase injury risk.",
+      "Rushed Reps : Perform the movement slowly to maximize control and engagement.",
+      "Incorrect Bench Angle : Ensure the decline angle is not too steep, as this can reduce chest activation and place undue strain on the shoulders."
+    ]
+  },
+  "Push-Up": {
+    "howTo": [
+      "Starting Position: Begin in a high plank position with hands placed slightly wider than shoulder-width apart.",
+      "Starting Position: Keep your body in a straight line from head to heels.",
+      "Starting Position: Engage your core and keep your neck neutral.",
+      "Lowering Phase: Inhale as you bend your elbows and lower your chest toward the ground.",
+      "Lowering Phase: Keep your elbows at a 45-degree angle to your torso.",
+      "Lowering Phase: Lower until your chest is just above the floor or as far as mobility allows.",
+      "Pressing Phase: Exhale as you push through your palms to return to the starting position.",
+      "Pressing Phase: Fully extend your arms while maintaining core engagement.",
+      "Repetition and Breathing: Perform controlled reps at a steady pace to maximize muscle engagement."
+    ],
+    "tips": [
+      "Keep your core tight to prevent your lower back from sagging.",
+      "Maintain a straight body line from head to heels.",
+      "Avoid locking out your elbows at the top of the movement.",
+      "Place your hands firmly on the ground for better stability."
+    ],
+    "mistakes": [
+      "Allowing the Hips to Sag: This reduces core engagement and may strain the lower back.",
+      "Flaring the Elbows: Keeping elbows too wide places stress on the shoulders.",
+      "Incomplete Range of Motion: Performing half-reps limits muscle activation and strength gains.",
+      "Holding the Breath: Breathing properly ensures oxygen flow and better endurance."
+    ]
+  },
+  "Dumbbell Fly": {
+    "howTo": [
+      "Lie flat on a bench.",
+      "Hold a dumbbell in each hand with a neutral grip (palms facing each other).",
+      "Extend your arms straight above your chest, keeping a slight bend in your elbows to reduce joint strain."
+    ],
+    "tips": [
+      "Use light to moderate weights to maintain control and avoid straining your shoulders.",
+      "Avoid locking out your elbows or letting your arms drop too far below chest level.",
+      "Focus on a controlled movement to maximize the stretch and contraction."
+    ],
+    "mistakes": []
+  },
+  "Cable Fly": {
+    "howTo": [
+      "Adjust the pulleys to the desired height:",
+      "High Pulley : Targets the lower chest.",
+      "Mid Pulley : Works the middle chest.",
+      "Low Pulley : Engages the upper chest.",
+      "Attach D-handles to each pulley."
+    ],
+    "tips": [
+      "Avoid locking your elbows or using momentum.",
+      "Keep your core engaged and your back straight.",
+      "Adjust the weight to allow for controlled, smooth repetitions."
+    ],
+    "mistakes": [
+      "Overloading the Weight : Using too much weight can compromise form and increase injury risk.",
+      "Lack of Control : Allowing the cables to snap back reduces effectiveness and may strain the joints.",
+      "Improper Body Position : Leaning too far forward or backward can take the focus off the chest."
+    ]
+  },
+  "Chest Dip": {
+    "howTo": [
+      "Position Yourself : Place your hands on the parallel bars, keeping your arms straight and your body slightly tilted forward. Your feet should be off the ground, and your body should be in an upright or slightly forward lean position, depending on your focus.",
+      "Grip : Grasp the bars firmly with your palms facing inward and your elbows slightly bent to start.",
+      "Leg Position : Keep your legs bent at the knees and feet together for stability, or extend them straight out for more difficulty."
+    ],
+    "tips": [
+      "Slow and Controlled : Perform each rep slowly and with control to maximize muscle engagement. Focus on the stretch at the bottom and the squeeze at the top.",
+      "Mind-Muscle Connection : Concentrate on feeling the chest muscles working throughout the movement, especially during the lowering phase.",
+      "Use Progressive Overload : As you get stronger, you can add weight using a dip belt to continue progressing and building muscle.",
+      "Warm Up Properly : Ensure your shoulders and chest are warmed up before performing dips to prevent injuries."
+    ],
+    "mistakes": [
+      "Not Leaning Forward Enough : For chest activation, make sure to lean forward slightly as you lower your body. This helps target the chest muscles. If you stay too upright, the focus will shift to the triceps.",
+      "Flared Elbows : Keep your elbows close to your body to reduce stress on the shoulders and prevent injury.",
+      "Not Going Deep Enough : Ensure you lower yourself sufficiently (at least until your upper arms are parallel to the floor) to maximize chest engagement and muscle activation.",
+      "Locking Elbows at the Top : Avoid locking your elbows at the top of the movement, which can place unnecessary stress on the joints."
+    ]
+  },
+  "Decline Push-Up": {
+    "howTo": [
+      "Set Up Your Position: Place your feet on an elevated surface (bench, step, or sturdy platform).",
+      "Set Up Your Position: Position your hands shoulder-width apart on the floor.",
+      "Set Up Your Position: Keep your body in a straight line from head to heels.",
+      "Lower Your Body: Engage your core and slowly lower your chest toward the floor.",
+      "Lower Your Body: Keep your elbows at a 45-degree angle from your body.",
+      "Lower Your Body: Maintain a controlled motion without letting your hips sag or rise.",
+      "Push Back Up: Press through your palms and push yourself back to the starting position .",
+      "Push Back Up: Keep your core and glutes engaged for stability.",
+      "Push Back Up: Fully extend your arms at the top without locking the elbows.",
+      "Repetitions and Sets: Aim for 3 to 4 sets of 10 to 15 reps , adjusting difficulty based on fitness level."
+    ],
+    "tips": [
+      "Keep your core engaged to maintain a neutral spine.",
+      "Do not let your lower back sag , as this can cause strain.",
+      "Control the descent and push-up phase to maximize muscle activation.",
+      "Breathe properly —inhale as you lower, exhale as you push up.",
+      "Choose an appropriate decline height —higher elevation increases difficulty."
+    ],
+    "mistakes": [
+      "Letting the hips sag or rise , which reduces effectiveness and strains the lower back.",
+      "Placing hands too far forward , leading to unnecessary shoulder stress.",
+      "Rushing the movement , reducing time under tension and muscle engagement.",
+      "Lack of full range of motion , preventing optimal chest activation.",
+      "Overarching the lower back , causing improper form and potential injury."
+    ]
+  },
+  "Deadlift": {
+    "howTo": [
+      "Begin by standing with your feet shoulder-width apart, with your toes pointed straight ahead. The barbell should be on the ground in front of you.",
+      "Bend down and grasp the bar with your hands slightly wider than shoulder-width apart, using an overhand or mixed grip (one hand overhand, one hand underhand).",
+      "Bend your knees and lower your hips, keeping your back straight and your chest up. Keep your head and neck in a neutral position, and focus on looking forward.",
+      "Take a deep breath and brace your core muscles. This will help to stabilize your spine and protect your lower back.",
+      "Keep the bar close to your body as you lift, and use your legs, glutes, and back muscles to power the lift.",
+      "Once you have lifted the bar to a standing position, pause for a moment, then lower it back down to the ground, keeping your back straight and your core engaged."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Romanian Deadlift": {
+    "howTo": [
+      "To perform a Romanian deadlift, follow these steps:",
+      "1. Feet shoulder-width apart",
+      "The first step in performing a Romanian deadlift is to make sure your feet are positioned shoulder-width apart. This stance provides a stable base for the lift, allowing you to engage your muscles and maintain proper form throughout the exercise.",
+      "2. Hinge at hips with slight knee bend",
+      "Once you have established your foot position, it’s time to hinge at the hips. Begin by standing tall with your shoulders back and your core engaged. From this position, slowly bend forward at the hips while maintaining a slight bend in your knees. This movement should feel like you are pushing your hips back, rather than simply bending forward.",
+      "As you hinge forward, it’s important to maintain a neutral spine. This means keeping your back straight and avoiding any rounding or arching in your upper or lower back. Keep your gaze forward or slightly down, and avoid looking up or craning your neck.",
+      "3. Overhand grip on barbell with hands shoulder-width apart",
+      "Take an overhand grip on the bar with your hands positioned shoulder-width apart. Ensure that the barbell is positioned close to your shins and is in contact with your body throughout the lift. This will help you maintain proper form and engage the correct muscles. If the barbell is too far away from your body, you risk straining your lower back and not targeting the intended muscle groups.",
+      "4. Straighten hips and knees to lift bar",
+      "Keeping your back straight and your core engaged, lift the bar by straightening your hips and knees. It’s essential to lift the bar with a controlled movement, avoiding any jerking or sudden movements. This will help you maintain proper form and reduce the risk of injury.",
+      "As you reach the top of the movement, squeeze your glutes and exhale. Reverse the movement and return the bar to the starting position by pushing your hips back and bending your knees slightly.",
+      "Tips: Throughout the lift, it’s essential to maintain a neutral spine and engage your core muscles. This will help you stabilize your body and reduce the risk of injury. Focus on keeping your back straight and avoiding any rounding or arching in your upper or lower back.",
+      "In summary, lifting the barbell in a Romanian deadlift involves straightening your hips and knees while maintaining proper form and keeping the barbell close to your body. By engaging your glutes, hamstrings, and core muscles, you can perform the lift with control and reduce the risk of injury."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Trap Bar Deadlift": {
+    "howTo": [
+      "Set Up: Position the trap bar on the ground and load it with the desired weight plates.",
+      "Set Up: Step inside the trap bar so that you’re standing in the center, with the handles on either side of you.",
+      "Set Up: Your feet should be hip-width apart, and your toes should be pointing forward or slightly outward.",
+      "Grip: Bend at your hips and knees to lower your body down. Keep your back straight and chest up.",
+      "Grip: Reach down and grip the handles of the trap bar with both hands, ensuring that your palms are facing each other.",
+      "Grip: Your hands should be positioned roughly at hip level or slightly lower.",
+      "Lift: Brace your core to maintain a stable spine.",
+      "Lift: Push through your heels and stand up, extending your hips and knees simultaneously. Keep your back flat and avoid rounding it.",
+      "Lift: As you lift the trap bar, keep it close to your body. Your arms should hang straight down from your shoulders.",
+      "Lift: Stand fully upright with your hips and knees locked out, maintaining a neutral spine.",
+      "Lower: To lower the trap bar, reverse the motion. Push your hips back first, and then bend your knees.",
+      "Lower the bar gently to the ground, ensuring that it doesn’t crash or bounce.",
+      "Repeat: Perform the desired number of repetitions for your workout."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Good Morning": {
+    "howTo": [
+      "1- Holding your body upright, position a barbell behind your neck and resting on the upper back. Keep your knees slightly bent and your spine neutral.",
+      "2- Bending slightly at your knees and hips, start to lean forward under control. Keep your chin up—it will stop you from rounding your back.",
+      "3- Lean forward by pivoting at the hip. Continue lowering your chest, keeping the back neutral and allowing your knees to bend slightly.",
+      "4- Flex as far as you can. With practice, your back may be parallel to the floor. Return to the start position, breathing out as you go."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Back Extension": {
+    "howTo": [
+      "1- Position your thighs on the pads of the Roman chair so that your hips are free to flex. Your feet should be flat on the foot supports, your spine neutral, and your elbows pointing out.",
+      "2- Flex at your hips and drop your upper body toward the floor, keeping your back flat. Stop bending when the flexibility of your hamstrings restricts further movement.",
+      "3- Return to the start position, contracting your hamstrings, glutes, and spinal erectors. Do not extend beyond the start position because you may injure your back."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Pull-Up": {
+    "howTo": [
+      "Grip a pull-up bar with your hands shoulder-width apart, palms facing away.",
+      "Hang from the bar with arms fully extended, legs straight or slightly bent.",
+      "Engage your core and back , then pull your chest toward the bar.",
+      "Drive elbows downward , squeezing your shoulder blades together.",
+      "Pause briefly at the top, with chin above the bar.",
+      "Lower yourself slowly and with control to the starting position."
+    ],
+    "tips": [
+      "Start from a dead hang with full arm extension.",
+      "Engage the scapula first to initiate the pull with your back, not just arms.",
+      "Avoid swinging or kipping if doing strict reps.",
+      "Keep your neck neutral and shoulders down.",
+      "Pull in a straight vertical path , avoiding chest flaring."
+    ],
+    "mistakes": [
+      "Half reps without reaching full extension or chin above the bar.",
+      "Using momentum or kipping unintentionally to cheat the movement.",
+      "Shrugging the shoulders instead of retracting the scapula.",
+      "Letting the legs swing , which reduces control.",
+      "Relying too much on biceps , neglecting lat activation."
+    ]
+  },
+  "Lat Pulldown": {
+    "howTo": [
+      "Start by attaching a wide handle bar to the cable.",
+      "Sit on the lat pulldown machine with your feet flat on the ground and your knees firmly pressed against the pad. Your thighs should be parallel to the ground.",
+      "Grab the bar with both hands, making sure your palms are facing away from you and your grip is wider than shoulder-width apart.",
+      "While keeping your back straight and your chest up, pull the bar down towards your chest by contracting your back muscles. Your elbows should point downwards and stay close to your body.",
+      "Pause for a second when the bar reaches your chest, and then slowly release it back up to the starting position, extending your arms fully.",
+      "Repeat for the desired number of reps."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Barbell Row": {
+    "howTo": [
+      "Setup: Stand with your feet shoulder-width apart, toes pointing forward, and the barbell in front of you on the floor. You can choose to use an overhand grip (palms facing you) or an underhand grip (palms facing away) on the bar, depending on your preference and comfort.",
+      "Bend at the Hips: Hinge at your hips while keeping your back straight. Lower your torso until it is almost parallel to the floor. Keep your knees slightly bent throughout the movement.",
+      "Grasp the Barbell: Reach down and grip the barbell with your hands slightly wider than shoulder-width apart. Your arms should be fully extended, and your grip should be firm.",
+      "Starting Position: Your back should be flat, chest out, and shoulder blades pulled back and down. This is the starting position.",
+      "The Row: Pull the barbell towards your upper abdomen or lower chest while keeping your elbows close to your body. Focus on squeezing your shoulder blades together at the top of the movement to engage your back muscles fully. Keep your core tight throughout the exercise.",
+      "Lower the Barbell: Slowly lower the barbell back down to the starting position while maintaining control. Do not allow the weight to pull you forward; instead, control the descent."
+    ],
+    "tips": [
+      "Avoid rounding your back during the exercise, as this can lead to injury. Keep your back straight and engage your core for stability.",
+      "Keep your head in a neutral position, looking slightly forward, to maintain proper spinal alignment.",
+      "Do not use momentum to lift the weight; focus on using your back and arm muscles to perform the rowing movement.",
+      "You can use a weightlifting belt for extra support if needed, especially when lifting heavy loads."
+    ],
+    "mistakes": []
+  },
+  "Pendlay Row": {
+    "howTo": [
+      "Setup : Stand with your feet shoulder-width apart, toes pointing forward, and the barbell on the floor in front of you. Bend at your hips while keeping your back flat, and grip the barbell with an overhand grip (palms facing down) slightly wider than shoulder-width apart.",
+      "Starting Position : Your back should be parallel to the floor, and your hips should be lower than your shoulders. Keep your chest out, shoulder blades pulled back and down, and your core engaged. This is the starting position.",
+      "The Row : Pull the barbell up towards your lower chest or upper abdomen while keeping your elbows close to your body. Squeeze your shoulder blades together at the top of the movement to engage your back muscles fully.",
+      "Lower the Barbell : Lower the barbell back down to the floor with control, ensuring it makes contact with the ground before starting the next repetition. This brief touch on the ground differentiates the Pendlay Row from other rowing variations, where the weight remains off the floor between repetitions.",
+      "Repeat : Perform the desired number of repetitions."
+    ],
+    "tips": [
+      "Keep your back flat throughout the movement, avoiding any rounding or arching of the spine.",
+      "Focus on pulling the weight explosively from the floor to your chest, emphasizing a controlled and quick lift."
+    ],
+    "mistakes": []
+  },
+  "Dumbbell Row": {
+    "howTo": [
+      "Place your left knee and left hand on a bench , keeping your back flat and torso parallel to the ground.",
+      "Hold a dumbbell in your right hand , arm fully extended toward the floor, palm facing in.",
+      "Engage your core and pull the dumbbell up , driving your elbow toward your hip.",
+      "Pause at the top , squeezing your shoulder blade toward your spine.",
+      "Lower the dumbbell slowly to the starting position under control.",
+      "Complete reps , then switch sides."
+    ],
+    "tips": [
+      "Keep your back flat and avoid rounding or arching.",
+      "Lead with the elbow , not the hand.",
+      "Keep your shoulders square and avoid torso rotation.",
+      "Exhale as you row up , inhale as you lower.",
+      "Use controlled tempo , avoid jerking or rushing the movement."
+    ],
+    "mistakes": [
+      "Rounding the back , which strains the spine.",
+      "Using momentum to lift the weight.",
+      "Twisting the torso , which reduces lat activation.",
+      "Letting the shoulder drop at the bottom.",
+      "Shrugging the shoulder , engaging traps instead of lats."
+    ]
+  },
+  "T-Bar Row": {
+    "howTo": [
+      "Set up the Equipment: First, set up the T-bar row machine with the appropriate amount of weight. If you don’t have access to a T-bar row machine, you can also use a barbell and a landmine attachment.",
+      "Position Yourself: Bend at the hips, keeping your back straight, and reach down to grasp the V-bar handles with a neutral grip (palms facing each other).",
+      "Lift the Weight: Lift the weight off the ground and let it hang in front of your body. This is your starting position.",
+      "Engage Your Back Muscles: Slowly pull the weight towards your chest by retracting your shoulder blades and squeezing your back muscles. Keep your elbows close to your body and your forearms parallel to the ground.",
+      "Hold the Contraction: Hold the contraction for a second or two, then slowly lower the weight back to the starting position.",
+      "Repeat: Complete the desired number of repetitions, then rest and repeat for additional sets."
+    ],
+    "tips": [
+      "Keep your back straight throughout the exercise to prevent injury and maximize muscle activation.",
+      "Use a weight that is challenging but allows you to maintain proper form and technique.",
+      "Avoid using momentum to lift the weight. Focus on using your back muscles to pull the weight towards your chest.",
+      "Breathe in as you lower the weight and breathe out as you lift the weight.",
+      "Mix up your grip to target different areas of your back. You can use an overhand grip, underhand grip, or a neutral grip."
+    ],
+    "mistakes": []
+  },
+  "Seated Cable Row": {
+    "howTo": [
+      "Place your feet firmly on the footrest or platform provided by the cable machine.",
+      "Keep your back straight and avoid slouching or rounding your shoulders forward. Engage your core muscles to help maintain good posture. This will help you maintain stability and prevent your lower back from rounding.",
+      "Before starting the exercise, retract your shoulder blades and keep them in this position throughout the movement. This will help engage the muscles of the upper back and prevent excessive strain on the shoulders and neck.",
+      "As you pull the cable handles towards you, keep your elbows flared out to the sides and squeeze your shoulder blades together at the end of the movement. This will help engage the muscles of the upper back and prevent excessive strain on the shoulders.",
+      "Pause for a second at the top of the movement and then slowly release back to the starting position. Exhale as you pull the cable towards your body and inhale as you return to the starting position.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      "Rounding the back: Maintain proper posture throughout the movement by keeping your back straight and your chest up.",
+      "Using too much weight: Start with a lighter weight and gradually increase as you become more comfortable with the exercise.",
+      "Using momentum: Focus on using a slow and controlled movement to engage the target muscles effectively."
+    ],
+    "mistakes": []
+  },
+  "Face Pull": {
+    "howTo": [
+      "Set Up: Attach a rope handle to a cable machine or use resistance bands at chest or eye level.",
+      "Grip: Hold the handles with an overhand grip, palms facing down.",
+      "Position: Stand tall with feet shoulder-width apart, engaging your core.",
+      "Execution: Pull the rope toward your face, elbows flaring outward.",
+      "Execution: Squeeze your shoulder blades together at the peak of the movement.",
+      "Execution: Slowly return to the starting position."
+    ],
+    "tips": [
+      "Focus on Form : Pull the rope or band towards your face while keeping your elbows high and flaring outward. Avoid shrugging your shoulders.",
+      "Controlled Tempo : Perform the movement slowly, focusing on the squeeze in your upper back and rear delts at the end of the pull.",
+      "Choose the Right Resistance : Use a moderate weight to ensure proper activation of the target muscles without compromising form."
+    ],
+    "mistakes": [
+      "Using Excessive Weight: Heavy resistance can compromise form and reduce the exercise’s effectiveness.",
+      "Dropping Elbows Too Low: Elbows should stay at shoulder height to properly target the rear deltoids and traps.",
+      "Overarching the Lower Back: Keep your core tight to prevent unnecessary strain on your spine.",
+      "Rushing Through Reps: Performing the exercise too quickly can decrease muscle activation.",
+      "Neglecting Shoulder Blade Movement: The goal is to squeeze your shoulder blades together at the peak for maximum effectiveness."
+    ]
+  },
+  "Inverted Row": {
+    "howTo": [
+      "Find a Bar or Suspension Trainer: Use a low bar on a squat rack, a Smith machine, or suspension straps (e.g., TRX). Ensure the equipment is sturdy.",
+      "Adjust the Height: Position the bar or straps at waist level or slightly lower. The lower the bar, the harder the exercise."
+    ],
+    "tips": [
+      "Engage the Core : Keep your abs tight to prevent your hips from sagging.",
+      "Neutral Spine : Maintain a straight line from your head to your heels throughout the movement.",
+      "Controlled Movement : Avoid jerking or using momentum; focus on slow, deliberate reps.",
+      "Elbow Position : Keep your elbows close to your torso to avoid excessive strain on the shoulders.",
+      "Bar Alignment : The bar should touch your chest or come close to it at the top of the movement."
+    ],
+    "mistakes": [
+      "Sagging Hips: Letting your hips drop reduces core engagement and compromises form.",
+      "Incomplete Range of Motion: Not pulling your chest close to the bar limits muscle activation.",
+      "Flaring Elbows: Allowing your elbows to flare can strain your shoulders.",
+      "Arching the Lower Back. Maintain a neutral spine by engaging your core and glutes."
+    ]
+  },
+  "Overhead Press": {
+    "howTo": [
+      "Sit upright on a flat bench , keeping feet flat and planted slightly wider than hip-width.",
+      "Set the barbell at shoulder height on a rack and grip it slightly wider than shoulder-width.",
+      "Unrack the bar and bring it to shoulder level with elbows slightly in front of the bar.",
+      "Engage your core and glutes to maintain balance without a backrest.",
+      "Press the bar overhead , extending your arms without leaning backward.",
+      "Lower the bar under control back to your upper chest or shoulder line."
+    ],
+    "tips": [
+      "Sit tall and engage your core to prevent arching your lower back.",
+      "Grip the floor with your feet to create a stable seated base.",
+      "Keep your ribcage down to avoid excessive spinal extension.",
+      "Drive the bar in a straight path , slightly behind your head at the top.",
+      "Exhale as you press and inhale as you lower the bar."
+    ],
+    "mistakes": [
+      "Leaning too far back , turning the press into an incline chest press.",
+      "Using too much weight , which compromises form without the support.",
+      "Letting the elbows flare out , which strains the shoulder joints.",
+      "Losing core engagement , causing instability and poor posture.",
+      "Bouncing the bar off the chest , rather than controlling the descent."
+    ]
+  },
+  "Seated Dumbbell Press": {
+    "howTo": [
+      "Starting Position : Sit on a bench with back support or stand with your feet hip-width apart. Hold a dumbbell in each hand at shoulder height with palms facing forward or slightly inward.",
+      "Brace and align: Engage your core, keep your spine neutral, and retract your shoulder blades lightly.",
+      "Press overhead: Press the dumbbells upward and slightly inward until your arms are fully extended without locking out at the elbows.",
+      "Lower under control: Slowly lower the dumbbells back to shoulder height while maintaining control and tension."
+    ],
+    "tips": [
+      "Keep your wrists neutral and aligned with your forearms.",
+      "Avoid overarching your lower back—brace your core to maintain spinal integrity.",
+      "Press in a slight arc rather than straight overhead for joint comfort."
+    ],
+    "mistakes": [
+      "Leaning back excessively and turning the press into an incline chest press.",
+      "Using momentum to “bounce” the dumbbells overhead.",
+      "Flaring the elbows too far out, stressing the shoulder joints."
+    ]
+  },
+  "Arnold Press": {
+    "howTo": [
+      "Starting Position: Sit on a bench with back support or stand upright.",
+      "Starting Position: Hold dumbbells at shoulder height with your palms facing your body.",
+      "Press and Rotate: As you press the dumbbells overhead, rotate your wrists outward so your palms face forward at the top of the movement.",
+      "Lower and Reset: Lower the dumbbells back to the starting position while rotating your wrists inward, returning your palms to face your chest."
+    ],
+    "tips": [
+      "Maintain Proper Form: Avoid arching your back or rounding your shoulders. Keep your core engaged and your back straight.",
+      "Control the Movement: Focus on a slow and controlled movement, avoiding jerky motions.",
+      "Choose Appropriate Weight: Heavy dumbbells can compromise form, increasing the risk of shoulder strain. Start with a lighter weight and gradually increase the weight as your strength improves."
+    ],
+    "mistakes": []
+  },
+  "Push Press": {
+    "howTo": [
+      "Set Up: Stand with your feet shoulder-width apart. Your toes should be slightly turned out.",
+      "Set Up: Position the barbell across your upper chest, just below your neck. If using dumbbells, hold one in each hand at shoulder height with palms facing forward.",
+      "Grip: For the barbell push press, your grip should be slightly wider than shoulder-width. Grip the bar with your palms facing forward and your elbows pointing downward. Make sure your wrists are aligned with your forearms.",
+      "Grip: If using dumbbells, grip them firmly with your palms facing each other.",
+      "Rack Position: Lift the barbell off the rack or clean the barbell to your shoulders if starting from the ground.",
+      "Rack Position: Keep your elbows slightly in front of the barbell and your upper arms parallel to the ground. This is your starting position.",
+      "Dip: Begin by slightly bending your knees to initiate a dip. Keep your torso upright and your chest lifted.",
+      "Dip: As you dip, focus on keeping your weight balanced on the midfoot and heels.",
+      "Drive: Explosively extend your hips and knees to generate upward momentum. This movement should be powerful and quick.",
+      "Drive: As you drive upward, press the barbell overhead using the strength of your shoulders and triceps. If using dumbbells, press them overhead simultaneously.",
+      "Lockout: Fully extend your arms overhead, locking out your elbows. Your head should move slightly forward as the barbell passes your forehead.",
+      "Return: Lower the barbell back to the starting position by bending your knees and hips. Allow the weight to descend under control.",
+      "Rack the Barbell: If using a barbell, rack it back on the supports or the ground."
+    ],
+    "tips": [
+      "Maintain a tight core throughout the movement to stabilize your spine.",
+      "Use a slight bounce from your dip to aid in the upward drive, but avoid turning it into a full squat.",
+      "Engage your glutes and quads during the drive phase for maximum power.",
+      "Keep the barbell or dumbbells close to your body during both the upward and downward phases of the movement.",
+      "Always warm up before attempting heavy weights and start with a weight you can comfortably handle to practice your form."
+    ],
+    "mistakes": []
+  },
+  "Lateral Raise": {
+    "howTo": [
+      "Starting Position: Stand upright with feet shoulder-width apart, holding dumbbells at your sides with palms facing inward.",
+      "Brace and Align: Engage your core muscles and slightly bend your knees to maintain stability.",
+      "Movement: Lift the dumbbells out to your sides, keeping a slight bend in your elbows and wrists straight. Raise the dumbbells until your arms reach shoulder level, parallel to the floor.",
+      "Controlled Return: Lower the weights slowly and smoothly back to the starting position while maintaining control and tension in your shoulders.",
+      "Repeat: Continue for the desired number of repetitions, typically 10–12 reps."
+    ],
+    "tips": [
+      "Keep your core engaged and spine neutral throughout the movement.",
+      "Do not swing or use momentum; lift weights slowly and with controlled motion.",
+      "Keep elbows slightly bent to prevent joint strain.",
+      "Focus on lifting through your elbows rather than wrists to emphasize deltoid activation."
+    ],
+    "mistakes": [
+      "Lifting Too Heavy: Choosing heavy weights often results in poor form and overuse of momentum, reducing effectiveness and increasing injury risk.",
+      "Raising Dumbbells Too High: Avoid lifting dumbbells higher than shoulder level to prevent unnecessary stress on shoulder joints.",
+      "Excessive Elbow Bend: Too much bend in elbows reduces the workload on shoulders and shifts tension elsewhere. Maintain a slight bend only."
+    ]
+  },
+  "Rear Delt Fly": {
+    "howTo": [
+      "Starting Position: Position the cable arms so that they are at your shoulder height. Grab the left cable with your right hand and overlap your arms by grabbing the right cable with your left hand.",
+      "Form: Exhale and while keeping your arms straight pull your shoulders out to the sides. Hold briefly and then slowly return to the starting position."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Upright Row": {
+    "howTo": [
+      "Starting Position: Begin my grabbing the barbell with your palms facing your body. Place your hands fairly close together– closer than shoulder width.",
+      "Form: Exhale and raise your elbows and shoulders up to about 90 degrees. Hold just for a brief second and then slowly lower to the starting position.",
+      "Personal Trainer Tips: Move in a controlled manner, so that momentum does not take over. If you are trying this exercise for the first time, choose a light weight and progress slowly."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Pike Push-Up": {
+    "howTo": [
+      "Start in a push-up position with your hands shoulder-width apart and feet together.",
+      "Lift your hips toward the ceiling, forming an upside-down V shape (similar to a downward dog in yoga).",
+      "Keep your arms extended and head in a neutral position between your arms."
+    ],
+    "tips": [
+      "Keep your core tight to maintain balance and control.",
+      "Push through your palms to engage the shoulders fully.",
+      "Keep your elbows tucked slightly to protect your shoulder joints.",
+      "Move slowly and with control to maximize strength gains.",
+      "Engage your legs to keep your body stable."
+    ],
+    "mistakes": [
+      "Letting the elbows flare too wide —this can strain the shoulders.",
+      "Not raising the hips high enough —this reduces shoulder activation.",
+      "Rushing the movement —reduces effectiveness and increases injury risk.",
+      "Failing to control the descent —this can lead to neck or head injuries.",
+      "Placing hands too far forward —reduces the effectiveness of the movement."
+    ]
+  },
+  "Squat": {
+    "howTo": [
+      "Set the barbell on a squat rack just below shoulder height. Step under it and rest the bar across your upper traps or rear delts.",
+      "Grip the bar firmly , pull your elbows down and under, and lift the bar off the rack.",
+      "Step back , set your feet shoulder-width apart, and brace your core.",
+      "Lower your body by pushing your hips back and bending the knees, keeping your chest upright.",
+      "Descend until your thighs are parallel to the ground or lower if mobility allows.",
+      "Drive through your heels to return to the standing position, keeping the spine neutral."
+    ],
+    "tips": [
+      "Brace your core before each rep to protect your lower back.",
+      "Keep your chest up and avoid leaning too far forward.",
+      "Push your knees out in line with your toes during the descent.",
+      "Grip the bar tightly to engage the upper back and lats.",
+      "Maintain a flat back and avoid rounding through the spine."
+    ],
+    "mistakes": [
+      "Letting the knees collapse inward , which stresses the joints.",
+      "Squatting too shallow , reducing range of motion and effectiveness.",
+      "Lifting the heels off the ground , which reduces stability.",
+      "Excessive forward lean , increasing the risk of back strain.",
+      "Improper bar position , leading to discomfort or instability."
+    ]
+  },
+  "Back Squat": {
+    "howTo": [
+      "Set the barbell on a squat rack just below shoulder height. Step under it and rest the bar across your upper traps or rear delts.",
+      "Grip the bar firmly , pull your elbows down and under, and lift the bar off the rack.",
+      "Step back , set your feet shoulder-width apart, and brace your core.",
+      "Lower your body by pushing your hips back and bending the knees, keeping your chest upright.",
+      "Descend until your thighs are parallel to the ground or lower if mobility allows.",
+      "Drive through your heels to return to the standing position, keeping the spine neutral."
+    ],
+    "tips": [
+      "Brace your core before each rep to protect your lower back.",
+      "Keep your chest up and avoid leaning too far forward.",
+      "Push your knees out in line with your toes during the descent.",
+      "Grip the bar tightly to engage the upper back and lats.",
+      "Maintain a flat back and avoid rounding through the spine."
+    ],
+    "mistakes": [
+      "Letting the knees collapse inward , which stresses the joints.",
+      "Squatting too shallow , reducing range of motion and effectiveness.",
+      "Lifting the heels off the ground , which reduces stability.",
+      "Excessive forward lean , increasing the risk of back strain.",
+      "Improper bar position , leading to discomfort or instability."
+    ]
+  },
+  "Front Squat": {
+    "howTo": [
+      "Set the barbell on a squat rack at upper chest level and position yourself under it with the bar resting on your shoulders and collarbone.",
+      "Cross your arms over the bar or use a clean grip with elbows pointing forward and chest tall.",
+      "Step back and stand with your feet shoulder-width apart and toes slightly turned out.",
+      "Brace your core and begin the movement by bending your hips and knees simultaneously.",
+      "Lower into a squat while keeping your elbows high and torso upright.",
+      "Descend until your thighs are parallel to the ground or slightly below.",
+      "Drive through your heels to return to the standing position while maintaining core tension and posture."
+    ],
+    "tips": [
+      "Keep your elbows high to support the bar and maintain an upright torso.",
+      "Maintain a neutral spine with your core braced throughout the movement.",
+      "Distribute your weight evenly across the midfoot and heels.",
+      "Use a clean grip or cross-arm grip based on mobility and comfort.",
+      "Descend with control and avoid letting the knees cave inward."
+    ],
+    "mistakes": [
+      "Letting the elbows drop , which causes the bar to roll forward.",
+      "Leaning forward , increasing pressure on the lower back.",
+      "Improper bar placement , leading to instability or discomfort.",
+      "Rising onto the toes , shifting tension away from the quads.",
+      "Not bracing the core , which can compromise balance and form."
+    ]
+  },
+  "Goblet Squat": {
+    "howTo": [
+      "Hold a dumbbell vertically with both hands under the top portion (the weighted end), close to your chest.",
+      "Stand with feet shoulder-width apart , toes slightly turned out.",
+      "Engage your core and keep your chest lifted throughout the movement.",
+      "Push your hips back and bend your knees , lowering into a deep squat while keeping the dumbbell at chest level.",
+      "Keep your elbows inside your knees as you reach full depth, and avoid letting the knees collapse inward.",
+      "Drive through your heels to return to the standing position, fully extending your hips at the top."
+    ],
+    "tips": [
+      "Keep the dumbbell close to your chest to maintain balance and upright posture.",
+      "Push your knees out in line with your toes to avoid valgus collapse.",
+      "Brace your core throughout the movement for stability.",
+      "Maintain a neutral spine and avoid leaning too far forward.",
+      "Go deep enough to feel a stretch in the hips and glutes while maintaining control."
+    ],
+    "mistakes": [
+      "Letting the dumbbell drift forward , which shifts weight and stresses the lower back.",
+      "Knees caving inward , reducing knee stability and increasing injury risk.",
+      "Rounding the lower back , often caused by poor hip mobility or core engagement.",
+      "Rushing the movement , reducing muscle activation and control.",
+      "Shallow squatting , which limits range of motion and benefit."
+    ]
+  },
+  "Hack Squat": {
+    "howTo": [
+      "Place a barbell behind your legs on the floor, with your feet hip-width apart and toes pointed slightly outward.",
+      "Squat down with a tall chest and neutral spine , gripping the barbell with both hands using a shoulder-width grip.",
+      "Engage your core and drive through your heels to lift the bar in a straight upward path behind your body.",
+      "Fully extend your hips and knees at the top while keeping the bar close to the back of your legs.",
+      "Lower the bar under control , maintaining proper posture and repeating for reps."
+    ],
+    "tips": [
+      "Keep your torso upright throughout the lift to emphasize the quads and reduce back strain.",
+      "Drive through your heels to activate your glutes and maintain balance.",
+      "Use a controlled tempo both on the way up and down.",
+      "Keep the bar close to your body to avoid pulling the load away from your center of mass.",
+      "Warm up your knees and ankles to prepare for the deep knee flexion involved."
+    ],
+    "mistakes": [
+      "Rounding the lower back , which increases injury risk.",
+      "Letting the bar drift away from your legs , causing balance and form issues.",
+      "Using too much weight too soon , compromising technique.",
+      "Pushing through the toes , which reduces stability and glute activation.",
+      "Not warming up or mobilizing ankles , limiting depth and range of motion."
+    ]
+  },
+  "Sissy Squat": {
+    "howTo": [
+      "Stand upright with your feet hip-width apart and heels slightly elevated or supported.",
+      "Brace your core and maintain a tall chest as you begin to lean backward from the knees.",
+      "Allow your knees to move forward over your toes as your upper body leans back in a straight line.",
+      "Lower down until you feel a deep stretch in the quads or reach your mobility limit.",
+      "Drive through your toes to return to the starting position, keeping your body aligned."
+    ],
+    "tips": [
+      "Elevate your heels using a plate or wedge if ankle mobility is limited.",
+      "Engage your core throughout the movement to avoid arching the lower back.",
+      "Keep your torso straight from shoulders to knees as you lean backward.",
+      "Move slowly to control balance and maximize muscle tension.",
+      "Support yourself with a wall or bar when learning the movement."
+    ],
+    "mistakes": [
+      "Bending at the hips , which reduces quad isolation.",
+      "Rushing the movement , which can reduce control and increase risk of knee strain.",
+      "Not elevating heels when ankle mobility limits depth.",
+      "Leaning too far back , which may lead to loss of balance.",
+      "Holding your breath , which affects stability and muscle engagement."
+    ]
+  },
+  "Bulgarian Split Squat": {
+    "howTo": [
+      "Stand about two feet in front of a bench or step , holding a dumbbell in each hand at your sides.",
+      "Place your rear foot on the bench with the top of your foot resting on it .",
+      "Keep your front foot planted firmly , with your toes pointing forward and your stance hip-width apart ."
+    ],
+    "tips": [
+      "Maintain an upright torso to avoid excessive forward leaning.",
+      "Keep your front knee aligned with your toes to prevent strain.",
+      "Engage your core for better balance and stability.",
+      "Use controlled movements , avoiding bouncing at the bottom.",
+      "Start with bodyweight Bulgarian split squats if you are new to the movement before progressing to dumbbells."
+    ],
+    "mistakes": [
+      "Placing the back foot too high or too low , which can limit mobility and stability.",
+      "Leaning forward excessively , which reduces quad activation and increases stress on the lower back.",
+      "Letting the front knee cave inward , leading to improper alignment and potential injury.",
+      "Using momentum instead of controlled movement , decreasing the effectiveness of the exercise.",
+      "Choosing weights that are too heavy , which can compromise form and reduce the range of motion."
+    ]
+  },
+  "Walking Lunge": {
+    "howTo": [
+      "Hold a dumbbell in each hand , arms extended by your sides with palms facing inward.",
+      "Stand tall with your feet hip-width apart and engage your core.",
+      "Take a big step forward with your right leg, lowering both knees until your back knee hovers just above the ground.",
+      "Keep your chest upright and front knee directly above the ankle.",
+      "Push through the front heel to rise and bring your back leg forward into the next step.",
+      "Continue alternating legs as you walk forward for the desired number of reps or distance."
+    ],
+    "tips": [
+      "Keep your core engaged to maintain balance and stability.",
+      "Step wide enough so the front knee does not pass the toes.",
+      "Keep your torso upright to avoid forward lean.",
+      "Control your pace to ensure proper form and muscle activation.",
+      "Use a steady stride and avoid rushing through steps."
+    ],
+    "mistakes": [
+      "Letting the knees cave inward , which can strain the joint.",
+      "Taking too short a step , placing pressure on the front knee.",
+      "Swinging the dumbbells , which disrupts balance and posture.",
+      "Leaning forward excessively , shifting emphasis away from the legs.",
+      "Allowing the back knee to crash to the ground , increasing injury risk."
+    ]
+  },
+  "Reverse Lunge": {
+    "howTo": [
+      "Step 1: Stand tall with feet hip-width apart, hands on your hips and shoulders back.",
+      "Step 2: Keeping your upper body still and core tight, take one large step back with your right foot, then bend both knees to lower into a lunge, front leg should be parallel to the ground.",
+      "Step 3: Press through your left heel and return to start position. Repeat move, this time stepping back with your left foot."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Leg Press": {
+    "howTo": [
+      "Adjust the seat position: Sit on the seat with your back against the backrest and your feet resting flat on the platform. Your knees should be bent at a 90-degree angle.",
+      "Adjust the weight: Add weight plates to the machine according to your desired intensity level. Start with a weight that you can comfortably handle and gradually increase it as you progress.",
+      "Foot placement: Position your feet hip-width apart on the platform, with toes pointing forward or slightly outward. Ensure your feet are placed firmly and securely on the platform.",
+      "Preparation : Grip the handles or side supports of the machine for stability. Take a deep breath and brace your core muscles.",
+      "Execution: Push against the platform with your feet and extend your legs, driving the platform away from your body. Keep your back against the seat throughout the movement and avoid locking your knees at the top of the movement.",
+      "Lowering the weight: Slowly bend your knees and lower the weight back down, allowing your knees to reach a 90-degree angle or slightly beyond without letting the weight touch down completely.",
+      "Repeat: Complete the desired number of repetitions, maintaining control and proper form throughout the exercise."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Leg Extension": {
+    "howTo": [
+      "Set the leg extension machine to your appropriate height and adjust the backrest and footpad to align with your body.",
+      "Sit on the machine with your back against the backrest and your feet firmly placed against the footpad. Make sure your knees are aligned with the pivot point of the machine.",
+      "Position your legs under the padded lever or roller of the machine. The pad should rest against the front of your ankles, just above your feet.",
+      "Grasp the handles provided on the machine for stability and support throughout the exercise. Keep your upper body relaxed and maintain good posture."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Hip Thrust": {
+    "howTo": [
+      "Sit on the floor with your upper back against a bench and a barbell over your hips.",
+      "Roll the bar to rest across the crease of your hips, placing a pad or towel underneath for comfort.",
+      "Bend your knees and plant your feet flat, hip-width apart.",
+      "Brace your core and drive through your heels to lift the hips upward.",
+      "At the top , squeeze your glutes and pause when your torso is parallel to the floor.",
+      "Lower slowly back down and repeat for your desired number of reps."
+    ],
+    "tips": [
+      "Keep your chin tucked to avoid overarching your lower back.",
+      "Drive through your heels to engage the glutes rather than the quads.",
+      "Pause at the top and fully contract your glutes.",
+      "Use a padded barbell to avoid hip discomfort.",
+      "Maintain a straight line from shoulders to knees at the top."
+    ],
+    "mistakes": [
+      "Overextending the back at the top, which reduces glute activation and stresses the spine.",
+      "Allowing knees to flare out too much or cave inward.",
+      "Not using full range of motion , limiting the glute contraction.",
+      "Placing feet too far forward , shifting tension to the hamstrings.",
+      "Neglecting tempo , especially during the eccentric (lowering) phase."
+    ]
+  },
+  "Glute Bridge": {
+    "howTo": [
+      "Step 1: Start by laying on your back with your feet firmly planted on the floor, bending your knees at a 90 degree angle.",
+      "Step 2: Slowly lift your hips up off the floor and squeeze your glutes. Your body should make a straight line from your knees to your shoulders! Hold, return to the starting position and repeat."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Calf Raise": {
+    "howTo": [
+      "Starting Position: Stand upright with feet hip-width apart, holding a dumbbell in each hand, arms relaxed by your sides, maintaining proper posture and alignment.",
+      "Alignment and Stability: Engage your core muscles for stability, keep shoulders back, and maintain neutral spine alignment throughout the movement.",
+      "Lift Movement: Slowly rise onto the balls of your feet by lifting your heels as high as possible, fully contracting the calf muscles.",
+      "Controlled Lowering: Gradually lower your heels back down to the starting position in a controlled manner, ensuring steady muscular tension.",
+      "Repeat: Perform the desired repetitions, typically 10–15 reps per set, emphasizing slow and controlled movements."
+    ],
+    "tips": [
+      "Keep movements controlled, avoiding momentum or bouncing.",
+      "Maintain a neutral spine and upright posture throughout the exercise.",
+      "Hold briefly at the top position to maximize muscle engagement.",
+      "Select appropriate dumbbell weight to ensure proper technique and avoid injury."
+    ],
+    "mistakes": [
+      "Using Excessive Weight: Selecting overly heavy dumbbells can compromise form, reduce calf activation, and increase injury risk.",
+      "Limited Range of Motion: Not fully lifting heels or lowering them completely decreases effectiveness and muscle development potential.",
+      "Rapid, Jerky Movements: Fast repetitions or bouncing movements increase strain on tendons and joints, reducing exercise safety."
+    ]
+  },
+  "Seated Calf Raise": {
+    "howTo": [
+      "Setup : Sit on a flat bench with your feet shoulder-width apart on a raised surface or platform (2–4 inches high). Your knees should be bent at roughly 90 degrees.",
+      "Load the Barbell : Carefully place a padded barbell across your lower thighs, just above the kneecaps. Use a squat pad or towel for comfort.",
+      "Starting Position : Sit upright with a neutral spine, core braced, and toes pointing forward. Heels should be hanging off the edge of the platform.",
+      "Raise : Press through the balls of your feet and lift your heels as high as possible, contracting the calves at the top.",
+      "Pause and Contract : Hold the top position for 1–2 seconds to maximize soleus engagement.",
+      "Lower Slowly : Descend under control, allowing the heels to dip below the platform to stretch the calf.",
+      "Repeat : Complete the desired number of repetitions without bouncing or jerking."
+    ],
+    "tips": [
+      "Use a stable platform under your forefoot to allow full range of motion.",
+      "Keep your spine neutral and avoid leaning forward excessively during the lift.",
+      "Squeeze at the top of each rep to activate the soleus more effectively.",
+      "Lower your heels slowly to benefit from the eccentric portion of the movement.",
+      "Don’t roll your ankles — keep feet flat and stable through the range of motion."
+    ],
+    "mistakes": [
+      "Using too much weight , leading to reduced range of motion or bouncing.",
+      "Not using a platform , which shortens the range and limits the stretch at the bottom.",
+      "Skipping the pause at the top , which reduces time under tension.",
+      "Allowing the knees to move , which reduces stability and isolates the soleus less effectively.",
+      "Failing to control the eccentric phase , missing the opportunity for muscular growth."
+    ]
+  },
+  "Bicep Curl": {
+    "howTo": [
+      "Stand up straight with your feet shoulder-width apart and grasp the barbell with an underhand grip, with your hands shoulder-width apart.",
+      "Keep your elbows close to your sides and lift the barbell towards your chest, while contracting your biceps. Make sure to keep your elbows stationary and avoid swinging the weight.",
+      "Slowly lower the barbell back to the starting position, keeping your biceps engaged throughout the movement.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Hammer Curl": {
+    "howTo": [
+      "Stand or sit with good posture: Hold a weight in each hand with a neutral grip, palms facing each other. Your arms should be fully extended and hanging by your sides.",
+      "Curl one arm at a time: Exhale and curl one weight towards your shoulder, while keeping the other weight extended and hanging by your side.",
+      "Contract your biceps: At the top of the movement, squeeze your biceps to fully contract the muscles.",
+      "Lower the weight: Inhale and slowly lower the weight back to the starting position, keeping your elbow close to your body and maintaining control throughout the movement.",
+      "Repeat with the other arm: Repeat the movement with your other arm, curling the weight towards your shoulder while keeping the other arm extended and hanging by your side."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Preacher Curl": {
+    "howTo": [
+      "Sit on a preacher curl bench and grasp a dumbbell in one hand.",
+      "Place your upper arm on the bench so that it is supported and your elbow is pointing straight up.",
+      "Keeping your upper arm stationary, curl the dumbbell towards your shoulder.",
+      "Squeeze your biceps at the top of the movement, then slowly lower the dumbbell back to the starting position.",
+      "Repeat for the desired number of repetitions on one arm before switching to the other arm."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Concentration Curl": {
+    "howTo": [
+      "Sit on a bench or chair with your feet flat on the ground and a dumbbell in one hand.",
+      "Place your elbow on the inside of your thigh, with your arm fully extended and the dumbbell hanging straight down.",
+      "Curl the weight up towards your shoulder, keeping your elbow stationary and your upper arm pressed against your thigh.",
+      "Pause at the top of the movement, then slowly lower the weight back down to the starting position.",
+      "Repeat for the desired number of repetitions, then switch to the other arm and repeat."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "EZ Bar Curl": {
+    "howTo": [
+      "Stand straight with your feet shoulder-width apart and grasp the EZ-bar with an reverse grip. Your hands should be slightly narrower than shoulder-width apart.",
+      "Allow your arms to fully extend, keeping them close to your body. This is your starting position.",
+      "Keep your upper arms stationary, exhale, and curl the bar upward by contracting your biceps. Focus on squeezing the muscles at the top of the movement.",
+      "Pause briefly at the top of the curl, then slowly lower the bar back down to the starting position while inhaling.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Tricep Pushdown": {
+    "howTo": [
+      "Set Up the Equipment: Attach a single handle to the high pulley of a cable machine.",
+      "Set Up the Equipment: Select an appropriate weight that allows for controlled movement.",
+      "Position Yourself: Stand with feet shoulder-width apart for balance.",
+      "Position Yourself: Grip the handle with an overhand grip (palm facing down).",
+      "Position Yourself: Keep your elbow close to your torso and maintain a slight bend in your knees.",
+      "Execution: Exhale as you push the handle down by extending your elbow fully.",
+      "Execution: Keep your wrist neutral and avoid bending it during the movement.",
+      "Execution: Lower the handle until your arm is fully extended but not locked out.",
+      "Execution: Pause briefly at the bottom to maximize triceps engagement.",
+      "Execution: Inhale as you slowly return to the starting position with control.",
+      "Repeat: Perform the desired number of repetitions before switching arms."
+    ],
+    "tips": [
+      "Maintain a neutral spine and avoid leaning forward or backward.",
+      "Keep your elbow stationary to ensure the triceps do the work.",
+      "Use a controlled movement rather than relying on momentum.",
+      "Engage your core muscles to stabilize your body.",
+      "Adjust the weight accordingly to maintain proper form throughout the set."
+    ],
+    "mistakes": [
+      "Using too much weight , which can lead to improper form and reduced triceps activation.",
+      "Letting the elbow drift forward or outward , reducing the effectiveness of the exercise.",
+      "Relying on momentum rather than controlled muscle engagement.",
+      "Bending the wrist excessively , which can cause strain and reduce efficiency.",
+      "Not fully extending the elbow , limiting the activation of the triceps."
+    ]
+  },
+  "Skull Crusher": {
+    "howTo": [
+      "Lie flat on a bench with your feet planted on the floor.",
+      "Grasp a straight or EZ-bar using a shoulder-width overhand grip.",
+      "Start with arms extended, holding the barbell directly above your shoulders."
+    ],
+    "tips": [
+      "Keep your elbows close to your head to avoid shoulder involvement.",
+      "Lower the bar in a controlled motion to maintain tension and prevent injury.",
+      "Avoid letting the bar drift toward your chest or face.",
+      "Keep your wrists straight and stable throughout the lift.",
+      "Exhale as you press the bar up and inhale as you lower it."
+    ],
+    "mistakes": [
+      "Allowing the elbows to flare out excessively",
+      "Using momentum or bouncing the barbell off the forehead",
+      "Letting the wrists bend backward, reducing control and risking strain",
+      "Lowering the bar to the chest instead of the forehead, which shifts emphasis away from the triceps",
+      "Using too much weight and compromising range of motion or form"
+    ]
+  },
+  "Overhead Tricep Extension": {
+    "howTo": [
+      "Attach a rope or straight bar handle to a high pulley on a cable machine .",
+      "Stand facing away from the machine , gripping the handle with both hands.",
+      "Step forward slightly, keeping your feet shoulder-width apart for balance.",
+      "Raise the handle overhead , positioning your elbows close to your ears and bent at 90 degrees ."
+    ],
+    "tips": [
+      "Keep your core engaged to stabilize your body.",
+      "Maintain your elbows close to your head to fully engage the triceps.",
+      "Avoid using momentum ; control the weight through the full range of motion.",
+      "Do not overarch your lower back ; keep a neutral spine .",
+      "Use a weight that allows proper form without excessive strain."
+    ],
+    "mistakes": [
+      "Flaring out the elbows , reducing triceps engagement.",
+      "Leaning too far forward , causing unnecessary lower back stress.",
+      "Using too much weight , leading to improper form.",
+      "Rushing through reps , reducing time under tension.",
+      "Not fully extending the arms , limiting the effectiveness of the exercise."
+    ]
+  },
+  "Cable Overhead Extension": {
+    "howTo": [
+      "Attach a rope or straight bar handle to a high pulley on a cable machine .",
+      "Stand facing away from the machine , gripping the handle with both hands.",
+      "Step forward slightly, keeping your feet shoulder-width apart for balance.",
+      "Raise the handle overhead , positioning your elbows close to your ears and bent at 90 degrees ."
+    ],
+    "tips": [
+      "Keep your core engaged to stabilize your body.",
+      "Maintain your elbows close to your head to fully engage the triceps.",
+      "Avoid using momentum ; control the weight through the full range of motion.",
+      "Do not overarch your lower back ; keep a neutral spine .",
+      "Use a weight that allows proper form without excessive strain."
+    ],
+    "mistakes": [
+      "Flaring out the elbows , reducing triceps engagement.",
+      "Leaning too far forward , causing unnecessary lower back stress.",
+      "Using too much weight , leading to improper form.",
+      "Rushing through reps , reducing time under tension.",
+      "Not fully extending the arms , limiting the effectiveness of the exercise."
+    ]
+  },
+  "Close-Grip Bench Press": {
+    "howTo": [
+      "Lie down on a flat bench with your feet flat on the ground and your back in a neutral position.",
+      "Grab the bar with a close grip, with your hands placed slightly less than shoulder-width apart.",
+      "Unrack the bar and lower it slowly towards your chest while keeping your elbows tucked in close to your body.",
+      "Pause briefly at the bottom of the movement, then press the bar back up to the starting position, squeezing your triceps at the top.",
+      "Repeat for your desired number of repetitions."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Tricep Dip": {
+    "howTo": [
+      "Set Up Your Position: Grip the parallel bars with your hands slightly wider than shoulder-width apart.",
+      "Set Up Your Position: Fully extend your arms and support your body weight above the bars.",
+      "Position Your Body: Keep your chest slightly forward and engage your core.",
+      "Position Your Body: Bend your knees or extend your legs straight, depending on comfort and difficulty level.",
+      "Execution: Inhale as you lower your body by bending your elbows until your upper arms are parallel to the ground.",
+      "Execution: Keep your elbows close to your torso and avoid flaring them outward.",
+      "Execution: Pause briefly at the bottom, ensuring full triceps engagement.",
+      "Execution: Exhale as you press through your palms to extend your arms and return to the starting position.",
+      "Repeat: Perform the desired number of repetitions while maintaining proper form."
+    ],
+    "tips": [
+      "Keep your elbows tucked in rather than letting them flare outward.",
+      "Engage your core and glutes to maintain stability.",
+      "Lower yourself in a controlled motion to avoid unnecessary joint strain.",
+      "Avoid locking your elbows at the top of the movement.",
+      "Breathe properly, inhaling as you lower and exhaling as you push up ."
+    ],
+    "mistakes": [
+      "Leaning too far forward , which shifts focus to the chest rather than the triceps.",
+      "Flaring the elbows outward , reducing triceps activation and increasing injury risk.",
+      "Not lowering enough , limiting the range of motion and effectiveness.",
+      "Using momentum , instead of controlled movements for muscle engagement.",
+      "Locking out the elbows , which can place excessive stress on the joints."
+    ]
+  },
+  "Diamond Push-Up": {
+    "howTo": [
+      "Start in a high plank position , keeping your hands directly under your chest.",
+      "Bring your hands close together, forming a diamond shape with your thumbs and index fingers .",
+      "Keep your body in a straight line from head to heels , engaging your core and glutes to maintain stability."
+    ],
+    "tips": [
+      "Keep your core tight to prevent your hips from sagging.",
+      "Lower yourself slowly to maintain control and maximize muscle engagement.",
+      "Do not flare your elbows ; keep them tucked close to your sides.",
+      "Breathe properly , inhaling as you lower and exhaling as you push up.",
+      "Maintain a neutral spine to avoid unnecessary strain on your back."
+    ],
+    "mistakes": [
+      "Sagging hips or raising the butt too high , which compromises core engagement.",
+      "Flaring elbows , which reduces triceps activation and increases shoulder strain.",
+      "Incomplete range of motion , which limits muscle development.",
+      "Moving too fast , which reduces muscle tension and effectiveness.",
+      "Hands positioned too far apart , shifting focus away from the triceps."
+    ]
+  },
+  "Plank": {
+    "howTo": [
+      "Keep the spine neutral; engage in “abdominal stabilization” by pulling abdominal muscles.",
+      "Lower the shoulder blades, activating the anterior dentate muscles and the lower parts of the trapezius muscles.",
+      "Do not round or bend your back. Keep your pelvis in a neutral position.",
+      "Do not slouch or hunch. Keep your chest flat and the shoulder blades flattened.",
+      "Do not hold your breath. Breathe freely and naturally."
+    ],
+    "tips": [
+      "Keep the spine neutral; engage in “abdominal stabilization” by pulling abdominal muscles.",
+      "Lower the shoulder blades, activating the anterior dentate muscles and the lower parts of the trapezius muscles.",
+      "Do not round or bend your back. Keep your pelvis in a neutral position.",
+      "Do not slouch or hunch. Keep your chest flat and the shoulder blades flattened.",
+      "Do not hold your breath. Breathe freely and naturally."
+    ],
+    "mistakes": []
+  },
+  "Sit-Up": {
+    "howTo": [
+      "1- Lie on your back with your feet on the floor and your knees bent. Place the tips of your fingers on either side of your head.",
+      "2- Engage your core muscles and raise your torso upward, leaving just your buttocks and feet on the floor. Drive the movement entirely with your core.",
+      "3- Pause at the edge of the movement, then slowly lower your upper body to the start position, controlling the movement with your core."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Hanging Knee Raise": {
+    "howTo": [
+      "1- Hang from a stable chin-up bar using an overhand grip with your arms straight and shoulder- width apart. Keeping your body as still as possible and your legs together, engage your core.",
+      "2- Keeping your body still and your legs together, raise your knees upward, using your core to control the movement, until your hips and knees are at right angles. Pause, then return to the start position with good control."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Russian Twist": {
+    "howTo": [
+      "Sit on the floor with your knees bent and your feet flat on the ground.",
+      "Lean back slightly so that your upper body forms a V shape with your thighs. Keep your back straight, and engage your core muscles.",
+      "Clasp your hands together in front of you or hold a weight or medicine ball with both hands. This adds resistance to the exercise.",
+      "Twist your torso to one side, bringing the weight or your hands beside your hip. Keep your core engaged throughout the movement",
+      "Return to the center and then twist to the other side.",
+      "Repeat the twisting motion from side to side for the desired number of repetitions or time."
+    ],
+    "tips": [
+      "It’s important to perform the exercise with control to avoid straining your lower back. If you’re new to this exercise, start with a lower number of repetitions and gradually increase as your core strength improves.",
+      "The Russian twist is a versatile exercise, and you can modify it by adding resistance, using a medicine ball or a weight plate, or changing the angle of your torso for increased difficulty."
+    ],
+    "mistakes": []
+  },
+  "Cable Woodchopper": {
+    "howTo": [
+      "1- Stand with the pulley to your right, keeping your back and legs straight, and your shoulders and hips aligned. Keeping your arms extended, grasp the cable handles.",
+      "2- Engaging your core, pull the cable down and across your body, bending your elbows as you reach the midpoint of your chest. Keep your shoulders straight.",
+      "3- Keeping the cable close to your body, push down with your arms to finish the movement. Hold briefly and return to the start position. Switch sides."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Mountain Climber": {
+    "howTo": [
+      "1- Assume a normal press-up position with your weight on your hands and toes, your back and legs straight, and your hands shoulder-width apart.",
+      "2- In one quick but controlled movement, bring your right knee up toward your chest, placing the ball of your right foot on the floor at the edge of the movement.",
+      "3- Lightly spring up with your legs and switch feet, bringing your left foot up toward your chest as you push back with the right. Continue alternating your feet for the required number of reps, then relax to the start position."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Dead Bug": {
+    "howTo": [
+      "This progression adds dynamic movement and rotational instability. Begin with your arms vertical and your feet off the floor, knees bent. Lower your left arm behind you, drawing your left knee to your chest and extending your right leg as far as possible without arching your back. Repeat as required."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Bicycle Crunch": {
+    "howTo": [
+      "Starting Position: Lie flat on your back on a mat or a comfortable surface.",
+      "Starting Position: Place your hands behind your head, elbows pointing outward.",
+      "Starting Position: Lift your legs off the ground, bending your knees at a 90-degree angle. This is your starting position.",
+      "Execution: Lift your head, shoulders, and feet off the ground, engaging your core muscles.",
+      "Execution: As you lift, bring your right elbow and left knee toward each other in a twisting motion.",
+      "Execution: At the same time, straighten your right leg, keeping it elevated above the ground.",
+      "Execution: Simulate a cycling motion by alternately bringing your left elbow toward your right knee while straightening your left leg.",
+      "Execution: Continue this pedaling motion, making sure to engage your core and avoid pulling on your neck with your hands.",
+      "Breathing: Exhale as you twist and bring your elbow to the opposite knee.",
+      "Breathing: Inhale as you switch to the other side.",
+      "Repeat: Continue the pedaling motion for a specific number of repetitions or a set duration."
+    ],
+    "tips": [
+      "Focus on controlled and deliberate movements to engage the abdominal muscles effectively.",
+      "Keep your lower back pressed into the floor to maintain proper form. The emphasis is on the twisting motion, engaging both the upper and lower body.",
+      "Avoid pulling on your neck with your hands; instead, use your core to lift your upper body."
+    ],
+    "mistakes": []
+  },
+  "V-Up": {
+    "howTo": [
+      "1- Lie flat on the floor with your legs together and your arms stretched above your head, shoulder-width apart, palms facing inward.",
+      "2- Using your core to drive the movement, raise your legs and upper body off the floor at the same time, keeping them straight, and bring your arms over in an arc toward your feet.",
+      "3- Continue the movement to form a “V” shape, with your back and legs straight, and stretch your arms toward your toes. Hold briefly, then reverse the movement to the start position, controlling it with your core."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Kettlebell Swing": {
+    "howTo": [
+      "The kettlebell swing is a dynamic movement; it should flow continuously without pausing at the top or bottom.",
+      "Stand with your feet 6–12 inches outside of shoulder width on either side, each foot pointed outward about 30 degrees.",
+      "Keep your shoulders pulled back (retracted) and down to avoid rounding your back.",
+      "The lowering movement (backswing) is a sitting-back-on-a-chair movement, not a squatting- down movement.",
+      "Imagine pinching a quarter between your butt cheeks when you pop your hips forward.",
+      "At the top of the swing, the kettlebell should be around shoulder height, and your body should form a straight line from head to heels."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Clean and Jerk": {
+    "howTo": [
+      "Set up with feet hip-width apart , barbell over mid-foot, and hands slightly wider than shoulder-width.",
+      "Clean Phase: Keep the back flat and chest up as you lift the bar from the ground.",
+      "Clean Phase: Explosively extend through the hips and shrug, pulling the bar upward.",
+      "Clean Phase: Drop under the bar and catch it in a front rack position with elbows high.",
+      "Jerk Phase: Dip slightly by bending the knees, then drive upward through the legs.",
+      "Jerk Phase: Split or push under the bar quickly, locking out the arms overhead.",
+      "Jerk Phase: Stabilize and stand upright to complete the lift."
+    ],
+    "tips": [
+      "Keep your back tight during the initial pull to avoid rounding.",
+      "Drive through the heels and extend the hips fully before the catch.",
+      "Practice front rack mobility to support a secure clean position.",
+      "Use a controlled dip and aggressive drive in the jerk phase.",
+      "Catch the bar with a solid base , especially in the split jerk."
+    ],
+    "mistakes": [
+      "Pulling too early , which reduces bar height and disrupts timing.",
+      "Not extending the hips fully before dropping under the bar.",
+      "Poor front rack position , leading to instability in the clean.",
+      "Rushing the jerk , without a proper dip and drive sequence.",
+      "Failing to stabilize overhead , especially under fatigue."
+    ]
+  },
+  "Farmer's Carry": {
+    "howTo": [
+      "Begin by selecting two heavy objects or weights of equal weight. These can be dumbbells, kettlebells, barbells, sandbags, or other heavy objects with handles.",
+      "Stand upright with a neutral spine and a tight core.",
+      "Pick up the weights, one in each hand, with a neutral grip (palms facing each other).",
+      "Maintain an upright posture, keep your shoulders back, and avoid excessive leaning forward or backward.",
+      "Walk a predetermined distance or for a set amount of time while holding the weights at your sides.",
+      "Once you reach the end of your walking distance or time, carefully set the weights down."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Turkish Get-Up": {
+    "howTo": [
+      "Step 1: Lie on the floor with your right knee bent and your right foot flat on the ground. Have your left leg straight for the starting position.",
+      "Step 2: Hold a kettlebell or dumbbell in your right hand and keep your wrist, elbow, and shoulder in vertical alignment. Move your left arm to the side with the hand flat on the floor for balance.",
+      "Step 3: Engage your abs, take a breath, and raise your torso off the floor, making sure to keep your right arm straight and the kettlebell over your shoulder joint. Push yourself with your left arm until your torso is vertical and you’re in a seated position.",
+      "Step 4: With the kettlebell still over your right shoulder and left hand supporting you, bend your left leg and place the knee on the floor, raising yourself. Keep your back straight as you raise your torso higher and remove your left hand from the floor.",
+      "Step 5: Square your hips to create a solid lunge position, take another breath, and lift your left knee, stepping on the left foot. As you do that, get up to the standing position by extending your knees and hips. Keep the kettlebell over your shoulder, and don’t bend your elbow.",
+      "Step 6: Reverse the motion by lunging back, lifting your left foot off the floor, landing on your left knee, and rotating the left leg behind your body.",
+      "Step 7: From there, place your left hand on the floor, extend your left leg in front of you, and get into the seated position without extending the right knee. Maintain the kettlebell over your right shoulder.",
+      "Step 8: Bend your left arm to lower your torso further and lie on your back carefully and into the starting position without bending your right arm."
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Medicine Ball Slam": {
+    "howTo": [
+      "1- Holding a medicine ball in both hands, stand with your feet shoulder-width apart and your back in a neutral position. Engaging your core, raise the medicine ball above your head, keeping your arms straight and your shoulders aligned with each other.",
+      "2- In one powerful movement, drive the medicine ball down toward the floor in front of you, keeping your arms straight, pivoting at your shoulders, and driving the force with your core.",
+      "3- Release the ball at the bottom of the downward movement, keeping your shoulders and hips aligned and your legs straight. Ideally, you should drive the ball down hard enough to lift your body off the ground with the momentum generated by the movement. Retrieve the ball and repeat"
+    ],
+    "tips": [],
+    "mistakes": []
+  },
+  "Sled Push": {
+    "howTo": [
+      "Place a weight plate flat on a smooth floor (turf, rubber, wood, or tile).",
+      "Get into a low athletic stance : hips back, chest down, hands on the edge of the plate, arms extended.",
+      "Engage your core , and drive through the balls of your feet to push the plate forward.",
+      "Keep your back flat , head in line with your spine, and avoid rounding your shoulders.",
+      "Continue pushing for distance or time, using short, powerful steps."
+    ],
+    "tips": [
+      "Keep hips low to engage your glutes and avoid excessive stress on the spine.",
+      "Drive from the legs , not the arms—your lower body should do most of the work.",
+      "Maintain core tension to stabilize your spine throughout the push.",
+      "Use explosive but controlled steps to maintain traction and power.",
+      "Look slightly forward , not straight down, to keep a neutral neck position."
+    ],
+    "mistakes": [
+      "Standing too upright , which reduces power and efficiency.",
+      "Rounding the back , increasing injury risk.",
+      "Using only your arms , instead of legs and core to generate force.",
+      "Letting heels lift excessively , which decreases drive and stability.",
+      "Poor surface choice , creating too much friction or uncontrolled sliding."
+    ]
+  }
+}

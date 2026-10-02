@@ -83,15 +83,31 @@ class _WorkoutOverviewState extends State<WorkoutOverview> {
         children: [
           Icon(icon, size: 16, color: color),
           const SizedBox(width: 8),
+          // Name and recommended set time grouped together on the left,
+          // rather than the time sitting off toward the trailing set
+          // count on the right.
           Expanded(
-            child: Text(
-              exercise.name,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 13,
-                color: isCurrent ? AppColors.text : AppColors.textMuted,
-                fontWeight: isCurrent ? FontWeight.bold : FontWeight.normal,
-              ),
+            child: Row(
+              children: [
+                Flexible(
+                  child: Text(
+                    exercise.name,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: isCurrent ? AppColors.text : AppColors.textMuted,
+                      fontWeight: isCurrent ? FontWeight.bold : FontWeight.normal,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 6),
+                // Roughly how long each set of this exercise is expected
+                // to take.
+                Text(
+                  '~${formatDuration(exercise.setSeconds)}',
+                  style: const TextStyle(fontSize: 11, color: AppColors.textMuted),
+                ),
+              ],
             ),
           ),
           const SizedBox(width: 8),

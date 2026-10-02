@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../app_state.dart';
+import '../exercise_library.dart';
 import '../theme.dart';
 import '../widgets/random_workout_sheet.dart';
 
@@ -30,8 +31,6 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Iron Clock', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: AppColors.textMuted)),
-                const SizedBox(height: 16),
                 PanelBox(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,19 +100,51 @@ class HomeScreen extends StatelessWidget {
                         style: const TextStyle(fontSize: 13, color: AppColors.textMuted),
                       ),
                       const SizedBox(height: 12),
-                      ...activeTemplate.exercises.map(
-                        (ex) => Padding(
+                      ...activeTemplate.exercises.map((ex) {
+                        final group = ExerciseLibrary.groupOf(ex.name);
+                        // Not offered mid-workout: a session already in
+                        // progress has its own (session-only) swap, and
+                        // editing the saved plan out from under it here
+                        // could desync which exercise it's currently on.
+                        final canSwap = app.session == null && app.canSwapTemplateExercise(activeTemplate.id, ex.id);
+                        return Padding(
                           padding: const EdgeInsets.symmetric(vertical: 3),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Expanded(child: Text(ex.name, style: const TextStyle(fontSize: 14, color: AppColors.text))),
+                              Expanded(
+                                child: Row(
+                                  children: [
+                                    Flexible(
+                                      child: Text(
+                                        ex.name,
+                                        style: const TextStyle(fontSize: 14, color: AppColors.text),
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
+                                    if (canSwap)
+                                      InkWell(
+                                        borderRadius: BorderRadius.circular(4),
+                                        onTap: () => app.swapTemplateExercise(activeTemplate.id, ex.id),
+                                        child: const Padding(
+                                          padding: EdgeInsets.symmetric(horizontal: 3, vertical: 2),
+                                          child: Icon(Icons.swap_horiz, size: 16, color: AppColors.textMuted),
+                                        ),
+                                      ),
+                                    if (group != null)
+                                      Text(
+                                        ' · ${group.label}',
+                                        style: const TextStyle(fontSize: 12, color: AppColors.textMuted),
+                                      ),
+                                  ],
+                                ),
+                              ),
                               Text('${ex.sets} sets, ${ex.restSeconds}s rest',
                                   style: const TextStyle(fontSize: 14, color: AppColors.textMuted)),
                             ],
                           ),
-                        ),
-                      ),
+                        );
+                      }),
                     ],
                   ),
                 ),

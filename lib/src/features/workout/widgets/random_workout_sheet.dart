@@ -4,7 +4,6 @@ import '../random_workout.dart';
 import '../theme.dart';
 
 const _durationPresets = [15, 30, 45, 60, 90];
-const _defaultMinutes = 45;
 
 /// Opens the muscle-group and duration picker for the random workout
 /// generator, resolving to the user's request, or null if dismissed.
@@ -29,7 +28,9 @@ class _RandomWorkoutSheetState extends State<_RandomWorkoutSheet> {
   bool _fullBody = false;
   bool _neglected = false;
   bool _bodyweightOnly = false;
-  int _minutes = _defaultMinutes;
+  bool _favoritesOnly = false;
+  bool _staleOnly = false;
+  int? _minutes;
 
   void _toggleGroup(MuscleGroup group) {
     setState(() {
@@ -61,7 +62,7 @@ class _RandomWorkoutSheetState extends State<_RandomWorkoutSheet> {
     });
   }
 
-  bool get _canGenerate => _fullBody || _neglected || _selectedGroups.isNotEmpty;
+  bool get _canGenerate => (_fullBody || _neglected || _selectedGroups.isNotEmpty) && _minutes != null;
 
   void _done() {
     Navigator.pop(
@@ -70,8 +71,10 @@ class _RandomWorkoutSheetState extends State<_RandomWorkoutSheet> {
         fullBody: _fullBody,
         neglectedOnly: _neglected,
         groups: _selectedGroups,
-        targetMinutes: _minutes,
+        targetMinutes: _minutes!,
         bodyweightOnly: _bodyweightOnly,
+        favoritesOnly: _favoritesOnly,
+        staleOnly: _staleOnly,
       ),
     );
   }
@@ -101,16 +104,8 @@ class _RandomWorkoutSheetState extends State<_RandomWorkoutSheet> {
                 for (final group in trainableMuscleGroups)
                   _chip(label: group.label, selected: _selectedGroups.contains(group), onTap: () => _toggleGroup(group)),
                 _chip(label: 'Full body', selected: _fullBody, onTap: _toggleFullBody),
-                _chip(label: "Haven't trained in a while", selected: _neglected, onTap: _toggleNeglected),
+                _chip(label: 'Neglected', selected: _neglected, onTap: _toggleNeglected),
               ],
-            ),
-            const SizedBox(height: 20),
-            const Text('Equipment', style: TextStyle(fontSize: 11, color: AppColors.textMuted)),
-            const SizedBox(height: 8),
-            _chip(
-              label: 'No weights (bodyweight only)',
-              selected: _bodyweightOnly,
-              onTap: () => setState(() => _bodyweightOnly = !_bodyweightOnly),
             ),
             const SizedBox(height: 20),
             const Text('Duration (minutes)', style: TextStyle(fontSize: 11, color: AppColors.textMuted)),
@@ -125,6 +120,30 @@ class _RandomWorkoutSheetState extends State<_RandomWorkoutSheet> {
                   onTap: () => setState(() => _minutes = minutes),
                 );
               }).toList(),
+            ),
+            const SizedBox(height: 20),
+            const Text('Filters', style: TextStyle(fontSize: 11, color: AppColors.textMuted)),
+            const SizedBox(height: 8),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                _chip(
+                  label: 'No weights',
+                  selected: _bodyweightOnly,
+                  onTap: () => setState(() => _bodyweightOnly = !_bodyweightOnly),
+                ),
+                _chip(
+                  label: 'Favorites',
+                  selected: _favoritesOnly,
+                  onTap: () => setState(() => _favoritesOnly = !_favoritesOnly),
+                ),
+                _chip(
+                  label: 'Not recent',
+                  selected: _staleOnly,
+                  onTap: () => setState(() => _staleOnly = !_staleOnly),
+                ),
+              ],
             ),
             const SizedBox(height: 20),
             PrimaryButton(

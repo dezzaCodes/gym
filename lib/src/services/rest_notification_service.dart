@@ -22,6 +22,10 @@ class RestNotificationService {
     if (_initAttempted) return;
     _initAttempted = true;
 
+    // The plugin's web implementation can't schedule notifications (it
+    // throws on every zonedSchedule call), so leave the service not-ready.
+    if (kIsWeb) return;
+
     try {
       tzdata.initializeTimeZones();
 

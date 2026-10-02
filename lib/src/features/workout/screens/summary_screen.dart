@@ -3,6 +3,7 @@ import '../app_state.dart';
 import '../badges.dart';
 import '../models.dart';
 import '../theme.dart';
+import '../widgets/workout_progress_bar.dart';
 
 class SummaryScreen extends StatelessWidget {
   final WorkoutAppState app;
@@ -38,6 +39,15 @@ class SummaryScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 PanelBox(
+                  child: WorkoutProgressBar(
+                    targetSeconds: summary.targetSeconds,
+                    elapsedSeconds: summary.durationSeconds,
+                    fillColor: summary.onPace ? AppColors.good : AppColors.danger,
+                    completedExercises: summary.completedExercises,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                PanelBox(
                   child: Column(
                     children: [
                       Text(
@@ -69,7 +79,7 @@ class SummaryScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         const Text(
-                          "This was a random workout — add it to keep it in your workouts list.",
+                          "Enjoyed the session?",
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 13, color: AppColors.textMuted),
                         ),

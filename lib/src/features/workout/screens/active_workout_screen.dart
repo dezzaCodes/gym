@@ -1,12 +1,13 @@
-import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import '../app_state.dart';
 import '../models.dart';
 import '../theme.dart';
-import '../exercise_tips.dart';
+import '../widgets/exercise_gif_preview.dart';
+import '../widgets/exercise_tips_section.dart';
 import '../widgets/rest_skip_button.dart';
 import '../widgets/exercise_chart.dart';
 import '../widgets/workout_overview.dart';
+import '../widgets/workout_progress_bar.dart';
 
 class ActiveWorkoutScreen extends StatelessWidget {
   final WorkoutAppState app;
@@ -40,6 +41,43 @@ class ActiveWorkoutScreen extends StatelessWidget {
     final suggestion = app.progressionSuggestion(ex.name, session.setIndex);
     final isWorking = session.phase == SessionPhase.working;
 
+    // The bar's rest/exercise split only has data for exercises that have
+    // fully finished. So it can update live as the current one goes,
+    // rather than jumping in all at once once every set is done, stand
+    // in a partial entry for it from whatever sets have been logged so
+    // far this exercise, plus — once the set actually in progress has
+    // moved from resting to working — a synthetic entry for it so that
+    // time renders as work instead of continuing to be painted as the
+    // rest that preceded it.
+    final currentExerciseLogs = session.logs.where((l) => l.exerciseName == ex.name).toList();
+    final liveSets = [
+      ...currentExerciseLogs.map((l) => SetEntry(
+            setNumber: l.setNumber,
+            weight: l.weight,
+            reps: l.reps,
+            setSeconds: l.setSeconds,
+            restSeconds: l.restSeconds,
+          )),
+      if (isWorking)
+        SetEntry(
+          setNumber: currentExerciseLogs.length + 1,
+          weight: null,
+          reps: null,
+          setSeconds: session.elapsed - session.setStartElapsed,
+          restSeconds: session.pendingRestSeconds > 0 ? session.pendingRestSeconds : null,
+        ),
+    ];
+    final liveCompletedExercises = [
+      ...session.completedExercises,
+      if (liveSets.isNotEmpty)
+        CompletedExercise(
+          exerciseName: ex.name,
+          durationSeconds: session.elapsed - session.exerciseStartElapsed,
+          endElapsed: session.elapsed,
+          sets: liveSets,
+        ),
+    ];
+
     return Column(
       children: [
         Expanded(
@@ -70,87 +108,14 @@ class ActiveWorkoutScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 8),
-                SizedBox(
-                  height: 8,
-                  child: Stack(
-                    alignment: Alignment.centerLeft,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(4),
-                        child: LinearProgressIndicator(
-                          value: math.min(1.0, timeFraction),
-                          minHeight: 8,
-                          backgroundColor: AppColors.border,
-                          valueColor: AlwaysStoppedAnimation(paceColor),
-                        ),
-                      ),
-                      // A tick for each exercise finished so far, at the
-                      // point in the bar where it ended — a reference for
-                      // spotting which one ate the most time (the widest
-                      // gap between ticks).
-                      for (final done in session.completedExercises)
-                        Align(
-                          alignment: Alignment(-1 + 2 * math.min(1.0, done.endElapsed / math.max(targetSeconds, 1)), 0),
-                          child: Container(width: 1.5, height: 12, color: AppColors.background),
-                        ),
-                      // Marks how far you actually are through the workout,
-                      // by completed sets weighted by each exercise's own
-                      // expected time — the time fill passing this line
-                      // means you're running behind. Animated so it visibly
-                      // slides to its new position each time a set is
-                      // completed, rather than jumping.
-                      AnimatedAlign(
-                        duration: const Duration(milliseconds: 400),
-                        curve: Curves.easeOut,
-                        alignment: Alignment(-1 + 2 * currentPace, 0),
-                        child: Container(width: 2, height: 12, color: AppColors.text),
-                      ),
-                    ],
-                  ),
-                ),
-                if (session.completedExercises.isNotEmpty) ...[
-                  const SizedBox(height: 2),
-                  SizedBox(
-                    height: 12,
-                    child: LayoutBuilder(
-                      builder: (context, constraints) {
-                        const labelStyle = TextStyle(fontSize: 9, color: AppColors.textMuted);
-                        final children = <Widget>[];
-                        for (final done in session.completedExercises) {
-                          final label = formatDuration(done.durationSeconds);
-                          final labelWidth = (TextPainter(
-                            text: TextSpan(text: label, style: labelStyle),
-                            textDirection: TextDirection.ltr,
-                          )..layout())
-                              .width;
-                          // Center the label under the middle of the time
-                          // this exercise actually took, but skip it if the
-                          // segment is too narrow to fit it without
-                          // overlapping its neighbors.
-                          final segmentWidth = constraints.maxWidth * done.durationSeconds / math.max(targetSeconds, 1);
-                          if (labelWidth + 4 > segmentWidth) continue;
-                          final startFraction =
-                              math.max(0, done.endElapsed - done.durationSeconds) / math.max(targetSeconds, 1);
-                          final endFraction = math.min(1.0, done.endElapsed / math.max(targetSeconds, 1));
-                          final midFraction = (startFraction + endFraction) / 2;
-                          final maxLeft = math.max(0.0, constraints.maxWidth - labelWidth);
-                          final left = (constraints.maxWidth * midFraction - labelWidth / 2).clamp(0.0, maxLeft);
-                          children.add(Positioned(left: left, child: Text(label, style: labelStyle)));
-                        }
-                        return Stack(children: children);
-                      },
-                    ),
-                  ),
-                ],
-                Padding(
-                  padding: const EdgeInsets.only(top: 4),
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      paceLabel,
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: paceColor),
-                    ),
-                  ),
+                WorkoutProgressBar(
+                  targetSeconds: targetSeconds,
+                  elapsedSeconds: session.elapsed,
+                  fillColor: paceColor,
+                  completedExercises: liveCompletedExercises,
+                  currentPaceFraction: currentPace,
+                  paceLabel: paceLabel,
+                  paceLabelColor: paceColor,
                 ),
                 const SizedBox(height: 16),
                 WorkoutOverview(app: app, tmpl: tmpl, session: session),
@@ -163,9 +128,16 @@ class ActiveWorkoutScreen extends StatelessWidget {
                 if (isWorking) ...[
                   PanelBox(
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('Working set', style: TextStyle(fontSize: 15, color: AppColors.textMuted)),
-                        const SizedBox(height: 12),
+                        const Text('Working set', style: TextStyle(fontSize: 12, color: AppColors.textMuted)),
+                        const SizedBox(height: 2),
+                        const Text(
+                          'Logging weight and reps unlocks your progress chart, weight-up '
+                          'suggestions, and PR badges for this exercise.',
+                          style: TextStyle(fontSize: 10, color: AppColors.textMuted),
+                        ),
+                        const SizedBox(height: 8),
                         Row(
                           children: [
                             Expanded(
@@ -208,28 +180,32 @@ class ActiveWorkoutScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  if (app.canSwapCurrentExercise()) ...[
-                    const SizedBox(height: 10),
-                    SecondaryButton(
-                      onPressed: app.swapCurrentExercise,
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [Icon(Icons.swap_horiz, size: 16), SizedBox(width: 6), Text('Swap exercise')],
-                      ),
+                ],
+                // Offered whenever the upcoming set is an exercise's first —
+                // whether you're actively working it or still resting from
+                // the previous exercise's last set, since by then this is
+                // already the exercise you're about to do.
+                if (app.canSwapCurrentExercise()) ...[
+                  const SizedBox(height: 10),
+                  SecondaryButton(
+                    onPressed: app.swapCurrentExercise,
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [Icon(Icons.swap_horiz, size: 16), SizedBox(width: 6), Text('Swap exercise')],
                     ),
-                    const SizedBox(height: 8),
-                    DangerOutlinedButton(
-                      onPressed: app.markCurrentExerciseCantDo,
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.block, size: 16),
-                          SizedBox(width: 6),
-                          Text("Can't do this"),
-                        ],
-                      ),
+                  ),
+                  const SizedBox(height: 8),
+                  DangerOutlinedButton(
+                    onPressed: app.markCurrentExerciseCantDo,
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.block, size: 16),
+                        SizedBox(width: 6),
+                        Text("Can't do this"),
+                      ],
                     ),
-                  ],
+                  ),
                 ],
 
                 // 3. Supplementary context for the set you're about to do —
@@ -259,18 +235,9 @@ class ActiveWorkoutScreen extends StatelessWidget {
                     children: [
                       Text('Tips for ${ex.name}', style: const TextStyle(fontSize: 12, color: AppColors.textMuted)),
                       const SizedBox(height: 8),
-                      ...ExerciseTips.tips(ex.name).map(
-                        (tip) => Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 2),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text('•  ', style: TextStyle(color: AppColors.textMuted)),
-                              Expanded(child: Text(tip, style: const TextStyle(fontSize: 13, color: AppColors.text))),
-                            ],
-                          ),
-                        ),
-                      ),
+                      ExerciseGifPreview(exerciseName: ex.name),
+                      const SizedBox(height: 8),
+                      ExerciseTipsSection(exerciseName: ex.name),
                     ],
                   ),
                 ),
@@ -303,19 +270,22 @@ class ActiveWorkoutScreen extends StatelessWidget {
           ),
           child: Padding(
             padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
-            child: isWorking
-                ? PrimaryButton(
-                    onPressed: app.completeSet,
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [Icon(Icons.check), SizedBox(width: 8), Text('Finish set')],
+            child: SizedBox(
+              height: 48,
+              child: isWorking
+                  ? PrimaryButton(
+                      onPressed: app.completeSet,
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [Icon(Icons.check), SizedBox(width: 8), Text('Finish set')],
+                      ),
+                    )
+                  : RestSkipButton(
+                      remaining: remaining,
+                      total: ex.restSeconds,
+                      onPressed: app.skipRest,
                     ),
-                  )
-                : RestSkipButton(
-                    remaining: remaining,
-                    total: ex.restSeconds,
-                    onPressed: app.skipRest,
-                  ),
+            ),
           ),
         ),
       ],

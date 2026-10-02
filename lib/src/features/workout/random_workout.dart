@@ -15,11 +15,20 @@ class RandomWorkoutRequest {
   /// are eligible — for a workout with no equipment at all.
   final bool bodyweightOnly;
 
+  /// When true, only exercises the user has favorited are eligible.
+  final bool favoritesOnly;
+
+  /// When true, only exercises that haven't been trained in a while (or
+  /// ever) are eligible.
+  final bool staleOnly;
+
   const RandomWorkoutRequest({
     this.fullBody = false,
     this.neglectedOnly = false,
     this.groups = const {},
     required this.targetMinutes,
     this.bodyweightOnly = false,
+    this.favoritesOnly = false,
+    this.staleOnly = false,
   });
 }
