@@ -1,6 +1,36 @@
 {
   "firestore": {
+    "database": "ftnx",
     "rules": "firebase/firestore.rules",
     "indexes": "firebase/firestore.indexes.json"
+  },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "oof-fitnx",
+          "appId": "1:432551665352:android:8cbff0ef8d3005aa7a8ffd",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "oof-fitnx",
+          "appId": "1:432551665352:ios:aa9d132cc63e63e07a8ffd",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "oof-fitnx",
+          "configurations": {
+            "android": "1:432551665352:android:8cbff0ef8d3005aa7a8ffd",
+            "ios": "1:432551665352:ios:aa9d132cc63e63e07a8ffd",
+            "web": "1:432551665352:web:162c2064f6ab08a97a8ffd"
+          }
+        }
+      }
+    }
   }
 }

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class FirestoreNotice {
   const FirestoreNotice({
@@ -29,7 +30,7 @@ class FirestoreNotice {
 
 class FirestoreNoticeRepository {
   FirestoreNoticeRepository({FirebaseFirestore? firestore})
-    : _firestore = firestore ?? FirebaseFirestore.instance;
+    : _firestore = firestore ?? FirebaseFirestore.instanceFor(app: Firebase.app(), databaseId: 'ftnx');
 
   final FirebaseFirestore _firestore;
 

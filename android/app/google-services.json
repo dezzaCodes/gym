@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "432551665352",
+    "firebase_url": "https://oof-fitnx-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "oof-fitnx",
+    "storage_bucket": "oof-fitnx.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432551665352:android:8cbff0ef8d3005aa7a8ffd",
+        "android_client_info": {
+          "package_name": "com.example.ironclock"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcHPxKaC8uaXpvhKrvXBfoCqXT4XyxuXM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432551665352:android:b2281572ee1ebd917a8ffd",
+        "android_client_info": {
+          "package_name": "com.ftnx.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcHPxKaC8uaXpvhKrvXBfoCqXT4XyxuXM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
