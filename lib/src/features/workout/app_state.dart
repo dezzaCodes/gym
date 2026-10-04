@@ -840,6 +840,7 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
     return ExerciseLibrary.byGroup[group]!
         .where((name) => !alreadyUsed.contains(name) && !data.excludedExercises.contains(name))
         .where((name) => !tmpl.bodyweightOnly || ExerciseLibrary.bodyweightOnly.contains(name))
+        .where((name) => !tmpl.weightsOnly || !ExerciseLibrary.bodyweightOnly.contains(name))
         .where((name) => !tmpl.favoritesOnly || data.favoriteExercises.contains(name))
         .where((name) => !tmpl.staleOnly || isExerciseStale(name))
         .toList();
@@ -1136,6 +1137,7 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
           (name) =>
               !data.excludedExercises.contains(name) &&
               (!request.bodyweightOnly || ExerciseLibrary.bodyweightOnly.contains(name)) &&
+              (!request.weightsOnly || !ExerciseLibrary.bodyweightOnly.contains(name)) &&
               (!request.favoritesOnly || data.favoriteExercises.contains(name)) &&
               (!request.staleOnly || isExerciseStale(name)),
         ),
@@ -1174,6 +1176,7 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
       // it, from the summary screen or the Stats recent-sessions list.
       isTemporary: true,
       bodyweightOnly: request.bodyweightOnly,
+      weightsOnly: request.weightsOnly,
       favoritesOnly: request.favoritesOnly,
       staleOnly: request.staleOnly,
     );
@@ -1255,6 +1258,7 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
     return ExerciseLibrary.byGroup[group]!
         .where((name) => !alreadyUsed.contains(name) && !data.excludedExercises.contains(name))
         .where((name) => !tmpl.bodyweightOnly || ExerciseLibrary.bodyweightOnly.contains(name))
+        .where((name) => !tmpl.weightsOnly || !ExerciseLibrary.bodyweightOnly.contains(name))
         .where((name) => !tmpl.favoritesOnly || data.favoriteExercises.contains(name))
         .where((name) => !tmpl.staleOnly || isExerciseStale(name))
         .toList();
@@ -1298,7 +1302,7 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
   }
 
   String _randomWorkoutName(RandomWorkoutRequest request, Set<MuscleGroup> groups) {
-    final bw = request.bodyweightOnly ? 'Bodyweight ' : '';
+    final bw = request.bodyweightOnly ? 'Bodyweight ' : (request.weightsOnly ? 'Weighted ' : '');
     if (request.fullBody) return 'Random ${bw}Full Body Workout';
     if (request.neglectedOnly) return 'Random ${bw}Workout (Due For Training)';
     final label = groups.map((g) => g.label).join(' & ');

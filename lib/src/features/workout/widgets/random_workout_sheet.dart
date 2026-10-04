@@ -28,6 +28,7 @@ class _RandomWorkoutSheetState extends State<_RandomWorkoutSheet> {
   bool _fullBody = false;
   bool _neglected = false;
   bool _bodyweightOnly = false;
+  bool _weightsOnly = false;
   bool _favoritesOnly = false;
   bool _staleOnly = false;
   int? _minutes;
@@ -73,6 +74,7 @@ class _RandomWorkoutSheetState extends State<_RandomWorkoutSheet> {
         groups: _selectedGroups,
         targetMinutes: _minutes!,
         bodyweightOnly: _bodyweightOnly,
+        weightsOnly: _weightsOnly,
         favoritesOnly: _favoritesOnly,
         staleOnly: _staleOnly,
       ),
@@ -131,7 +133,18 @@ class _RandomWorkoutSheetState extends State<_RandomWorkoutSheet> {
                 _chip(
                   label: 'No weights',
                   selected: _bodyweightOnly,
-                  onTap: () => setState(() => _bodyweightOnly = !_bodyweightOnly),
+                  onTap: () => setState(() {
+                    _bodyweightOnly = !_bodyweightOnly;
+                    if (_bodyweightOnly) _weightsOnly = false;
+                  }),
+                ),
+                _chip(
+                  label: 'Weights only',
+                  selected: _weightsOnly,
+                  onTap: () => setState(() {
+                    _weightsOnly = !_weightsOnly;
+                    if (_weightsOnly) _bodyweightOnly = false;
+                  }),
                 ),
                 _chip(
                   label: 'Favorites',

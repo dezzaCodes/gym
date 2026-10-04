@@ -15,6 +15,12 @@ class RandomWorkoutRequest {
   /// are eligible — for a workout with no equipment at all.
   final bool bodyweightOnly;
 
+  /// When true, only exercises that need added weight or resistance are
+  /// eligible — the opposite of [bodyweightOnly], for when equipment is
+  /// available and wanted. Mutually exclusive with [bodyweightOnly] in the
+  /// UI, since together they'd exclude everything.
+  final bool weightsOnly;
+
   /// When true, only exercises the user has favorited are eligible.
   final bool favoritesOnly;
 
@@ -28,6 +34,7 @@ class RandomWorkoutRequest {
     this.groups = const {},
     required this.targetMinutes,
     this.bodyweightOnly = false,
+    this.weightsOnly = false,
     this.favoritesOnly = false,
     this.staleOnly = false,
   });

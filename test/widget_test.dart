@@ -628,6 +628,29 @@ void main() {
     app.dispose();
   });
 
+  testWidgets('a weights-only random workout excludes every bodyweight exercise', (
+    WidgetTester tester,
+  ) async {
+    SharedPreferences.setMockInitialValues({});
+    final app = WorkoutAppState();
+    while (!app.loaded) {
+      await tester.pump(const Duration(milliseconds: 1));
+    }
+
+    for (var i = 0; i < 10; i++) {
+      final id = app.generateRandomWorkout(
+        const RandomWorkoutRequest(fullBody: true, targetMinutes: 45, weightsOnly: true),
+      );
+      final tmpl = app.templateById(id);
+      expect(tmpl.exercises, isNotEmpty);
+      for (final ex in tmpl.exercises) {
+        expect(ExerciseLibrary.bodyweightOnly.contains(ex.name), isFalse, reason: '${ex.name} is bodyweight-only');
+      }
+    }
+
+    app.dispose();
+  });
+
   testWidgets('favoriting an exercise persists and a favorites-only random workout only picks favorites', (
     WidgetTester tester,
   ) async {

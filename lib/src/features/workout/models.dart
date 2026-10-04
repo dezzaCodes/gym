@@ -51,6 +51,10 @@ class WorkoutTemplate {
   // only)" option — kept so exercise swaps mid-workout stay bodyweight-only
   // too, instead of offering a swap that needs equipment.
   bool bodyweightOnly;
+  // True when generated with "Weights only" — swaps mid-workout stay
+  // restricted to exercises that need equipment too, instead of offering a
+  // bodyweight-only swap.
+  bool weightsOnly;
   // True when generated with "Favorites only" — swaps mid-workout stay
   // restricted to favorited exercises too.
   bool favoritesOnly;
@@ -65,6 +69,7 @@ class WorkoutTemplate {
     required this.exercises,
     this.isTemporary = false,
     this.bodyweightOnly = false,
+    this.weightsOnly = false,
     this.favoritesOnly = false,
     this.staleOnly = false,
   });
@@ -76,6 +81,7 @@ class WorkoutTemplate {
         exercises: exercises.map((e) => e.copy()).toList(),
         isTemporary: isTemporary,
         bodyweightOnly: bodyweightOnly,
+        weightsOnly: weightsOnly,
         favoritesOnly: favoritesOnly,
         staleOnly: staleOnly,
       );
@@ -89,6 +95,7 @@ class WorkoutTemplate {
             .toList(),
         isTemporary: json['isTemporary'] as bool? ?? false,
         bodyweightOnly: json['bodyweightOnly'] as bool? ?? false,
+        weightsOnly: json['weightsOnly'] as bool? ?? false,
         favoritesOnly: json['favoritesOnly'] as bool? ?? false,
         staleOnly: json['staleOnly'] as bool? ?? false,
       );
@@ -100,6 +107,7 @@ class WorkoutTemplate {
         'exercises': exercises.map((e) => e.toJson()).toList(),
         'isTemporary': isTemporary,
         'bodyweightOnly': bodyweightOnly,
+        'weightsOnly': weightsOnly,
         'favoritesOnly': favoritesOnly,
         'staleOnly': staleOnly,
       };
