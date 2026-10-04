@@ -70,7 +70,7 @@ class ExerciseChart extends StatelessWidget {
     final labels = <int, String>{};
     for (final idx in instances) {
       final date = recent[idx].date;
-      final short = _shortDate(date);
+      final short = formatShortDate(date);
       if (dateOccurrences[date]! <= 1) {
         labels[idx] = short;
       } else {
@@ -181,30 +181,6 @@ class ExerciseChart extends StatelessWidget {
     );
   }
 
-  static const _monthAbbrevs = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
-
-  // Australian-style day-month, e.g. "25-Sep" — [date] is stored as
-  // "YYYY-MM-DD".
-  static String _shortDate(String date) {
-    if (date.length < 10) return date;
-    final month = int.tryParse(date.substring(5, 7));
-    final day = date.substring(8, 10);
-    if (month == null || month < 1 || month > 12) return date.substring(5);
-    return '$day-${_monthAbbrevs[month - 1]}';
-  }
 
   static Widget _legendItem(Color color, String label) {
     return Row(

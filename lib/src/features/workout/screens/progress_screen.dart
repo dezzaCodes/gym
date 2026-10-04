@@ -101,7 +101,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(inst.date, style: const TextStyle(fontSize: 13, color: AppColors.text)),
+                            Text(formatShortDate(inst.date), style: const TextStyle(fontSize: 13, color: AppColors.text)),
                             if (inst.durationSeconds != null)
                               Text(formatDuration(inst.durationSeconds!), style: const TextStyle(fontSize: 13, color: AppColors.textMuted)),
                           ],

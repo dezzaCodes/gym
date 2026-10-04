@@ -71,7 +71,7 @@ class StatsScreen extends StatelessWidget {
                           child: Row(
                             children: [
                               Expanded(
-                                child: Text('${h.date} · ${h.templateName}',
+                                child: Text('${formatShortDate(h.date)} · ${h.templateName}',
                                     style: const TextStyle(fontSize: 13, color: AppColors.text), overflow: TextOverflow.ellipsis),
                               ),
                               Text(formatDuration(h.durationSeconds),

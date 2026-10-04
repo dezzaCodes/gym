@@ -404,6 +404,32 @@ String formatDuration(int totalSeconds) {
   return '$sign$m:${sec.toString().padLeft(2, '0')}';
 }
 
+const _monthAbbrevs = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+];
+
+/// Australian-style day-month, e.g. "25-Sep" — [date] is stored as
+/// "YYYY-MM-DD". No year, since every date shown in the app is recent
+/// enough that it isn't needed.
+String formatShortDate(String date) {
+  if (date.length < 10) return date;
+  final month = int.tryParse(date.substring(5, 7));
+  final day = date.substring(8, 10);
+  if (month == null || month < 1 || month > 12) return date.substring(5);
+  return '$day-${_monthAbbrevs[month - 1]}';
+}
+
 String formatSetLog(SetEntry s) {
   final parts = <String>[];
   if (s.weight != null) parts.add(formatNumber(s.weight!));

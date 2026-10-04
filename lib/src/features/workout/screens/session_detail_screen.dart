@@ -35,7 +35,7 @@ class SessionDetailScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(h.templateName, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.text)),
-                    Text(h.date, style: const TextStyle(fontSize: 12, color: AppColors.textMuted)),
+                    Text(formatShortDate(h.date), style: const TextStyle(fontSize: 12, color: AppColors.textMuted)),
                   ],
                 ),
               ),
