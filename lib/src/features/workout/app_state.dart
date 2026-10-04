@@ -788,15 +788,28 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
     notifyListeners();
   }
 
+  /// Whether this is the one screen where swapping/excluding the current
+  /// exercise is offered: the first (and only) time it's shown before
+  /// starting work on it. For every exercise but the first, that's the rest
+  /// right after the previous exercise's last set — by then `exIndex` has
+  /// already moved on, so it's this exercise's upcoming first set. The very
+  /// first exercise has no preceding rest to show it on, so its one chance
+  /// is the working screen for its first set instead. Either way, it's
+  /// offered exactly once per exercise rather than reappearing on both
+  /// screens or every time the first set is revisited.
+  bool _isFirstSightOfCurrentExercise(WorkoutSession s) {
+    if (s.setIndex != 1) return false;
+    if (s.exIndex == 0) return s.phase == SessionPhase.working;
+    return s.phase == SessionPhase.resting;
+  }
+
   /// Whether the current exercise can be swapped for another one in the same
-  /// muscle group. Only offered before the first set of the exercise is
-  /// completed — swapping mid-exercise would leave its logged sets split
-  /// across two different exercise names. That includes the rest taken
-  /// right after the previous exercise's last set: by then `exIndex` has
-  /// already moved on, so it's this exercise's upcoming first set too.
+  /// muscle group. Swapping mid-exercise would leave its logged sets split
+  /// across two different exercise names, so this is only ever true on the
+  /// one screen [_isFirstSightOfCurrentExercise] identifies.
   bool canSwapCurrentExercise() {
     final s = session;
-    if (s == null || s.setIndex != 1) return false;
+    if (s == null || !_isFirstSightOfCurrentExercise(s)) return false;
     final tmpl = templateById(s.templateId);
     return _swapCandidates(tmpl, s).isNotEmpty;
   }
@@ -805,7 +818,7 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
   /// muscle group, for this session only — the saved template is untouched.
   void swapCurrentExercise() {
     final s = session;
-    if (s == null || s.setIndex != 1) return;
+    if (s == null || !_isFirstSightOfCurrentExercise(s)) return;
     final tmpl = templateById(s.templateId);
     final current = exerciseAt(tmpl, s, s.exIndex);
 
@@ -881,7 +894,7 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
   /// exercise you can't do (no equipment, an injury, etc.) comes up.
   void markCurrentExerciseCantDo() {
     final s = session;
-    if (s == null || s.setIndex != 1) return;
+    if (s == null || !_isFirstSightOfCurrentExercise(s)) return;
     final tmpl = templateById(s.templateId);
     final current = exerciseAt(tmpl, s, s.exIndex);
     excludeExercise(current.name);

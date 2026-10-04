@@ -270,7 +270,7 @@ void main() {
     expect(find.text('Swap'), findsNothing);
   });
 
-  testWidgets('swap exercise is offered during the rest before the next exercise, not just once it starts', (
+  testWidgets('swap exercise is offered during the rest before the next exercise, then disappears once it starts', (
     WidgetTester tester,
   ) async {
     SharedPreferences.setMockInitialValues({});
@@ -309,12 +309,22 @@ void main() {
     }
 
     // Resting before Overhead Press's first set: it's already the exercise
-    // shown, so swapping or excluding it should be offered here too, not
-    // only once it's actually being worked.
+    // shown, so swapping or excluding it should be offered here — its one
+    // and only chance, since this exercise has no working-phase screen for
+    // its first set where it hasn't already been offered.
     expect(find.text('Skip rest'), findsOneWidget);
     expect(find.textContaining('Overhead Press'), findsWidgets);
     expect(find.text('Swap'), findsOneWidget);
     expect(find.textContaining("Can't do"), findsOneWidget);
+
+    await tester.tap(find.text('Skip rest'));
+    await tester.pumpAndSettle();
+
+    // Now actually working Overhead Press's first set: already had its one
+    // chance during the rest above, so it shouldn't reappear here too.
+    expect(find.text('Working set'), findsOneWidget);
+    expect(find.text('Swap'), findsNothing);
+    expect(find.textContaining("Can't do"), findsNothing);
   });
 
   testWidgets('swapping an exercise mid-workout respects the bodyweight-only setting', (
