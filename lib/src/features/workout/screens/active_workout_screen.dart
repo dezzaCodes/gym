@@ -187,24 +187,32 @@ class ActiveWorkoutScreen extends StatelessWidget {
                 // already the exercise you're about to do.
                 if (app.canSwapCurrentExercise()) ...[
                   const SizedBox(height: 10),
-                  SecondaryButton(
-                    onPressed: app.swapCurrentExercise,
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [Icon(Icons.swap_horiz, size: 16), SizedBox(width: 6), Text('Swap exercise')],
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  DangerOutlinedButton(
-                    onPressed: app.markCurrentExerciseCantDo,
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.block, size: 16),
-                        SizedBox(width: 6),
-                        Text("Can't do this"),
-                      ],
-                    ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: SecondaryButton(
+                          onPressed: app.swapCurrentExercise,
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [Icon(Icons.swap_horiz, size: 16), SizedBox(width: 6), Text('Swap')],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: DangerOutlinedButton(
+                          onPressed: app.markCurrentExerciseCantDo,
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.block, size: 16),
+                              SizedBox(width: 6),
+                              Text("Can't do"),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
 
@@ -226,7 +234,24 @@ class ActiveWorkoutScreen extends StatelessWidget {
                   ),
                 ],
 
-                // 4. Form cues for the current exercise — shown whether
+                // 4. Historical detail for the current exercise, shown above
+                // the tips since it's specific to how this exercise is
+                // actually going for you.
+                if (exHistory.isNotEmpty) ...[
+                  const SizedBox(height: 16),
+                  PanelBox(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('History for ${ex.name}', style: const TextStyle(fontSize: 12, color: AppColors.textMuted)),
+                        const SizedBox(height: 8),
+                        ExerciseChart(history: exHistory),
+                      ],
+                    ),
+                  ),
+                ],
+
+                // 5. Form cues for the current exercise — shown whether
                 // you're actively working the set or resting before it.
                 const SizedBox(height: 16),
                 PanelBox(
@@ -241,22 +266,6 @@ class ActiveWorkoutScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-
-                // 5. Historical detail — the least time-critical content, so
-                // it's last.
-                if (exHistory.isNotEmpty) ...[
-                  const SizedBox(height: 16),
-                  PanelBox(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('History for ${ex.name}', style: const TextStyle(fontSize: 12, color: AppColors.textMuted)),
-                        const SizedBox(height: 8),
-                        ExerciseChart(history: exHistory),
-                      ],
-                    ),
-                  ),
-                ],
               ],
             ),
           ),

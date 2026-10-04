@@ -174,15 +174,15 @@ void main() {
     // Push Day's first exercise, Bench Press, is the only Chest exercise in
     // the template, so a swap is guaranteed to pick a different one.
     expect(find.text('Bench Press'), findsOneWidget);
-    expect(find.text('Swap exercise'), findsOneWidget);
+    expect(find.text('Swap'), findsOneWidget);
 
-    await tester.ensureVisible(find.text('Swap exercise'));
+    await tester.ensureVisible(find.text('Swap'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Swap exercise'));
+    await tester.tap(find.text('Swap'));
     await tester.pumpAndSettle();
 
     expect(find.text('Bench Press'), findsNothing);
-    expect(find.text('Swap exercise'), findsOneWidget);
+    expect(find.text('Swap'), findsOneWidget);
   });
 
   testWidgets("marking an exercise as can't do excludes it and swaps it out immediately", (
@@ -205,9 +205,9 @@ void main() {
 
     expect(find.text('Bench Press'), findsOneWidget);
 
-    await tester.ensureVisible(find.textContaining("Can't do this"));
+    await tester.ensureVisible(find.textContaining("Can't do"));
     await tester.pumpAndSettle();
-    await tester.tap(find.textContaining("Can't do this"));
+    await tester.tap(find.textContaining("Can't do"));
     await tester.pumpAndSettle();
 
     // Swapped out immediately, so the workout continues without it.
@@ -249,7 +249,7 @@ void main() {
     await tester.tap(find.text('Start workout'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Swap exercise'), findsOneWidget);
+    expect(find.text('Swap'), findsOneWidget);
 
     await tester.ensureVisible(find.text('Finish set'));
     await tester.pumpAndSettle();
@@ -267,7 +267,7 @@ void main() {
     // Bench Press has 4 sets, so we're now on set 2 of the same exercise.
     expect(find.text('Bench Press'), findsOneWidget);
     expect(find.text('Working set'), findsOneWidget);
-    expect(find.text('Swap exercise'), findsNothing);
+    expect(find.text('Swap'), findsNothing);
   });
 
   testWidgets('swap exercise is offered during the rest before the next exercise, not just once it starts', (
@@ -313,8 +313,8 @@ void main() {
     // only once it's actually being worked.
     expect(find.text('Skip rest'), findsOneWidget);
     expect(find.textContaining('Overhead Press'), findsWidgets);
-    expect(find.text('Swap exercise'), findsOneWidget);
-    expect(find.textContaining("Can't do this"), findsOneWidget);
+    expect(find.text('Swap'), findsOneWidget);
+    expect(find.textContaining("Can't do"), findsOneWidget);
   });
 
   testWidgets('swapping an exercise mid-workout respects the bodyweight-only setting', (
