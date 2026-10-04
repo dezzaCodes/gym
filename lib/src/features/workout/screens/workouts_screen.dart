@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../app_state.dart';
+import '../exercise_library.dart';
 import '../theme.dart';
 
 class WorkoutsScreen extends StatelessWidget {
@@ -72,6 +73,35 @@ class WorkoutsScreen extends StatelessWidget {
                             '${t.exercises.length} exercises, $totalSets sets, ${t.targetMinutes} min target',
                             style: const TextStyle(fontSize: 13, color: AppColors.textMuted),
                           ),
+                          const SizedBox(height: 10),
+                          ...t.exercises.map((ex) {
+                            final group = ExerciseLibrary.groupOf(ex.name);
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 2),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: Text.rich(
+                                      TextSpan(
+                                        style: const TextStyle(fontSize: 13, color: AppColors.text),
+                                        children: [
+                                          TextSpan(text: ex.name),
+                                          if (group != null)
+                                            TextSpan(
+                                              text: ' · ${group.label}',
+                                              style: const TextStyle(fontSize: 11, color: AppColors.textMuted),
+                                            ),
+                                        ],
+                                      ),
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                  Text('${ex.sets} sets, ${ex.restSeconds}s rest',
+                                      style: const TextStyle(fontSize: 12, color: AppColors.textMuted)),
+                                ],
+                              ),
+                            );
+                          }),
                         ],
                       ),
                     ),
