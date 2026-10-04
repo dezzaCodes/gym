@@ -47,7 +47,7 @@ class ExerciseDetailScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ExerciseGifPreview(exerciseName: name, height: 220),
+                ExerciseGifPreview(exerciseName: name),
                 const SizedBox(height: 8),
                 ExerciseTipsSection(exerciseName: name),
               ],

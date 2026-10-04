@@ -5,11 +5,14 @@ import '../theme.dart';
 /// The instructional gif for an exercise, if one exists in
 /// [exerciseGifUrls]. Renders nothing when there's no match, and a small
 /// fallback message if the bundled asset ever fails to load.
+///
+/// Fills the full width of whatever it's placed in, with height following
+/// from the gif's own aspect ratio (rather than a fixed height that would
+/// letterbox it) so none of the image is cropped or squeezed.
 class ExerciseGifPreview extends StatelessWidget {
   final String exerciseName;
-  final double height;
 
-  const ExerciseGifPreview({super.key, required this.exerciseName, this.height = 180});
+  const ExerciseGifPreview({super.key, required this.exerciseName});
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +27,9 @@ class ExerciseGifPreview extends StatelessWidget {
         // instead of reusing stale state from the previous one.
         key: ValueKey(exerciseName),
         width: double.infinity,
-        height: height,
-        fit: BoxFit.contain,
+        fit: BoxFit.fitWidth,
         errorBuilder: (context, error, stackTrace) => Container(
-          height: height,
+          height: 180,
           alignment: Alignment.center,
           color: AppColors.panelAlt,
           child: const Column(
