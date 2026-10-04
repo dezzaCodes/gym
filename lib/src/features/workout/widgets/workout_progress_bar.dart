@@ -210,7 +210,7 @@ class WorkoutProgressBar extends StatelessWidget {
                       const SizedBox(width: 4),
                       Text(
                         paceLabel!,
-                        style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: paceLabelColor),
+                        style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: paceLabelColor),
                       ),
                     ],
                   ),
