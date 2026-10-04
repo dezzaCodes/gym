@@ -236,37 +236,8 @@ class _SyncSection extends StatefulWidget {
 }
 
 class _SyncSectionState extends State<_SyncSection> {
-  final _emailController = TextEditingController();
-  final _linkController = TextEditingController();
-  bool _linkSent = false;
   bool _busy = false;
   String? _message;
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _linkController.dispose();
-    super.dispose();
-  }
-
-  Future<void> _sendLink() async {
-    final email = _emailController.text.trim();
-    if (email.isEmpty) return;
-    setState(() {
-      _busy = true;
-      _message = null;
-    });
-    final error = await widget.app.requestSyncLink(email);
-    setState(() {
-      _busy = false;
-      if (error == null) {
-        _linkSent = true;
-        _message = 'Check your email for a sign-in link, then paste it below.';
-      } else {
-        _message = error;
-      }
-    });
-  }
 
   Future<void> _signInWithGoogle() async {
     setState(() {
@@ -278,24 +249,6 @@ class _SyncSectionState extends State<_SyncSection> {
       _busy = false;
       _message = error;
     });
-  }
-
-  Future<void> _finishSignIn() async {
-    final email = _emailController.text.trim();
-    final link = _linkController.text.trim();
-    if (email.isEmpty || link.isEmpty) return;
-    setState(() {
-      _busy = true;
-      _message = null;
-    });
-    final error = await widget.app.completeSyncLink(email: email, link: link);
-    setState(() {
-      _busy = false;
-      _message = error;
-    });
-    if (error == null) {
-      _linkController.clear();
-    }
   }
 
   @override
@@ -345,35 +298,6 @@ class _SyncSectionState extends State<_SyncSection> {
               onPressed: _busy ? null : _signInWithGoogle,
               child: const Text('Sign in with Google'),
             ),
-            const SizedBox(height: 14),
-            const Text('or by email', style: TextStyle(fontSize: 11, color: AppColors.textMuted)),
-            const SizedBox(height: 10),
-            TextFormField(
-              controller: _emailController,
-              enabled: !_busy,
-              keyboardType: TextInputType.emailAddress,
-              style: const TextStyle(color: AppColors.text),
-              decoration: ironFieldDecoration(hint: 'you@example.com'),
-            ),
-            const SizedBox(height: 10),
-            SecondaryButton(
-              onPressed: _busy ? null : _sendLink,
-              child: Text(_linkSent ? 'Resend sign-in link' : 'Send sign-in link'),
-            ),
-            if (_linkSent) ...[
-              const SizedBox(height: 12),
-              TextFormField(
-                controller: _linkController,
-                enabled: !_busy,
-                style: const TextStyle(color: AppColors.text),
-                decoration: ironFieldDecoration(hint: 'Paste the link from your email'),
-              ),
-              const SizedBox(height: 10),
-              SecondaryButton(
-                onPressed: _busy ? null : _finishSignIn,
-                child: const Text('Finish sign-in'),
-              ),
-            ],
             if (_message != null)
               Padding(
                 padding: const EdgeInsets.only(top: 10),

@@ -410,35 +410,6 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
     }
   }
 
-  /// Sends a passwordless sign-in link to [email]. Returns an error message,
-  /// or null on success.
-  Future<String?> requestSyncLink(String email) async {
-    final auth = _auth;
-    if (auth == null) return 'Sync is not available in this build.';
-    try {
-      await auth.sendSignInLink(email);
-      return null;
-    } catch (error) {
-      return error.toString();
-    }
-  }
-
-  /// Completes sign-in using the link the user pasted back from their email.
-  /// Returns an error message, or null on success.
-  Future<String?> completeSyncLink({required String email, required String link}) async {
-    final auth = _auth;
-    if (auth == null) return 'Sync is not available in this build.';
-    if (!auth.isSignInLink(link)) {
-      return 'That does not look like a valid sign-in link.';
-    }
-    try {
-      await auth.completeSignIn(email: email, link: link);
-      return null;
-    } catch (error) {
-      return error.toString();
-    }
-  }
-
   Future<void> disableSync() async {
     await _cloudSubscription?.cancel();
     _cloudSubscription = null;
