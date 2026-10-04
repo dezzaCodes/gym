@@ -1033,6 +1033,47 @@ void main() {
     expect(earnedCount, greaterThan(0));
   });
 
+  testWidgets('tapping a recent session shows its exercise-by-exercise breakdown', (
+    WidgetTester tester,
+  ) async {
+    SharedPreferences.setMockInitialValues({});
+
+    await tester.pumpWidget(
+      const App(
+        bootstrap: AppBootstrap(
+          firebaseReady: false,
+          statusMessage: 'Firebase is not configured yet.',
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Start workout'));
+    await tester.pumpAndSettle();
+
+    await _completeActiveWorkout(tester);
+
+    await tester.tap(find.text('Done'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Stats'));
+    await tester.pumpAndSettle();
+
+    expect(find.textContaining('Push Day'), findsOneWidget);
+    await tester.tap(find.textContaining('Push Day'));
+    await tester.pumpAndSettle();
+
+    // Same recap bar shown on the summary screen right after finishing,
+    // plus a per-exercise, per-set breakdown underneath it.
+    expect(find.byType(WorkoutProgressBar), findsOneWidget);
+    expect(find.text('Bench Press'), findsOneWidget);
+    expect(find.text('Set 1'), findsWidgets);
+
+    await tester.tap(find.byIcon(Icons.arrow_back));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Your stats'), findsOneWidget);
+  });
+
   testWidgets('random workouts stay off the workouts list until saved from the summary screen', (
     WidgetTester tester,
   ) async {

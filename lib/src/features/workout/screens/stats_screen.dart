@@ -57,24 +57,31 @@ class StatsScreen extends StatelessWidget {
                     'Nothing logged yet. Finish a workout to see it here.',
                     style: TextStyle(fontSize: 13, color: AppColors.textMuted),
                   ),
-                ...app.data.history.map((h) {
+                ...app.data.history.asMap().entries.map((entry) {
+                  final i = entry.key;
+                  final h = entry.value;
                   final canSave = app.canSaveTemplate(h.templateId);
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 3),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Text('${h.date} · ${h.templateName}',
-                                  style: const TextStyle(fontSize: 13, color: AppColors.text), overflow: TextOverflow.ellipsis),
-                            ),
-                            Text(formatDuration(h.durationSeconds),
-                                style: TextStyle(fontSize: 13, color: h.onPace ? AppColors.good : AppColors.danger)),
-                            const SizedBox(width: 8),
-                            Text('+${h.xpEarned} XP', style: const TextStyle(fontSize: 13, color: AppColors.accent)),
-                          ],
+                        InkWell(
+                          onTap: () => app.openSessionDetail(i),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Text('${h.date} · ${h.templateName}',
+                                    style: const TextStyle(fontSize: 13, color: AppColors.text), overflow: TextOverflow.ellipsis),
+                              ),
+                              Text(formatDuration(h.durationSeconds),
+                                  style: TextStyle(fontSize: 13, color: h.onPace ? AppColors.good : AppColors.danger)),
+                              const SizedBox(width: 8),
+                              Text('+${h.xpEarned} XP', style: const TextStyle(fontSize: 13, color: AppColors.accent)),
+                              const SizedBox(width: 4),
+                              const Icon(Icons.chevron_right, size: 16, color: AppColors.textMuted),
+                            ],
+                          ),
                         ),
                         if (canSave)
                           Align(

@@ -11,6 +11,7 @@ import 'screens/stats_screen.dart';
 import 'screens/badges_screen.dart';
 import 'screens/exercises_screen.dart';
 import 'screens/exercise_detail_screen.dart';
+import 'screens/session_detail_screen.dart';
 
 class RootView extends StatelessWidget {
   final WorkoutAppState app;
@@ -55,6 +56,9 @@ class RootView extends StatelessWidget {
         break;
       case Screen.exerciseDetail:
         body = ExerciseDetailScreen(app: app);
+        break;
+      case Screen.sessionDetail:
+        body = SessionDetailScreen(app: app);
         break;
     }
 

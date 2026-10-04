@@ -212,6 +212,37 @@ class ExerciseHistoryInstance {
       };
 }
 
+class CompletedExercise {
+  String exerciseName;
+  int durationSeconds;
+  List<SetEntry> sets;
+
+  /// The workout's total elapsed seconds at the moment this exercise's
+  /// last set was finished — where it sits on the time-vs-pace bar.
+  int endElapsed;
+
+  CompletedExercise({
+    required this.exerciseName,
+    required this.durationSeconds,
+    required this.sets,
+    required this.endElapsed,
+  });
+
+  factory CompletedExercise.fromJson(Map<String, dynamic> json) => CompletedExercise(
+        exerciseName: json['exerciseName'] as String,
+        durationSeconds: json['durationSeconds'] as int,
+        sets: (json['sets'] as List).map((e) => SetEntry.fromJson(e as Map<String, dynamic>)).toList(),
+        endElapsed: json['endElapsed'] as int? ?? 0,
+      );
+
+  Map<String, dynamic> toJson() => {
+        'exerciseName': exerciseName,
+        'durationSeconds': durationSeconds,
+        'sets': sets.map((e) => e.toJson()).toList(),
+        'endElapsed': endElapsed,
+      };
+}
+
 class SessionHistoryEntry {
   String date;
   String templateName;
@@ -221,6 +252,10 @@ class SessionHistoryEntry {
   bool onPace;
   // Nullable for entries persisted before this field existed.
   String? templateId;
+  // Per-exercise/per-set breakdown for this specific session, so tapping it
+  // later can show exactly what happened rather than only the summary
+  // numbers above. Empty for entries persisted before this field existed.
+  List<CompletedExercise> completedExercises;
 
   SessionHistoryEntry({
     required this.date,
@@ -230,7 +265,8 @@ class SessionHistoryEntry {
     required this.xpEarned,
     required this.onPace,
     this.templateId,
-  });
+    List<CompletedExercise>? completedExercises,
+  }) : completedExercises = completedExercises ?? [];
 
   factory SessionHistoryEntry.fromJson(Map<String, dynamic> json) => SessionHistoryEntry(
         date: json['date'] as String,
@@ -240,6 +276,10 @@ class SessionHistoryEntry {
         xpEarned: json['xpEarned'] as int,
         onPace: json['onPace'] as bool,
         templateId: json['templateId'] as String?,
+        completedExercises: (json['completedExercises'] as List?)
+                ?.map((e) => CompletedExercise.fromJson(e as Map<String, dynamic>))
+                .toList() ??
+            [],
       );
 
   Map<String, dynamic> toJson() => {
@@ -249,6 +289,7 @@ class SessionHistoryEntry {
         'targetSeconds': targetSeconds,
         'xpEarned': xpEarned,
         'onPace': onPace,
+        'completedExercises': completedExercises.map((e) => e.toJson()).toList(),
         'templateId': templateId,
       };
 }

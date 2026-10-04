@@ -11,7 +11,7 @@ import 'models.dart';
 import 'random_workout.dart';
 import 'storage.dart';
 
-enum Screen { home, workouts, edit, active, summary, progress, stats, badges, exercises, exerciseDetail }
+enum Screen { home, workouts, edit, active, summary, progress, stats, badges, exercises, exerciseDetail, sessionDetail }
 
 enum SessionPhase { working, resting }
 
@@ -48,37 +48,6 @@ class SetLogEntry {
         'reps': reps,
         'setSeconds': setSeconds,
         'restSeconds': restSeconds,
-      };
-}
-
-class CompletedExercise {
-  String exerciseName;
-  int durationSeconds;
-  List<SetEntry> sets;
-
-  /// The workout's total elapsed seconds at the moment this exercise's
-  /// last set was finished — where it sits on the time-vs-pace bar.
-  int endElapsed;
-
-  CompletedExercise({
-    required this.exerciseName,
-    required this.durationSeconds,
-    required this.sets,
-    required this.endElapsed,
-  });
-
-  factory CompletedExercise.fromJson(Map<String, dynamic> json) => CompletedExercise(
-        exerciseName: json['exerciseName'] as String,
-        durationSeconds: json['durationSeconds'] as int,
-        sets: (json['sets'] as List).map((e) => SetEntry.fromJson(e as Map<String, dynamic>)).toList(),
-        endElapsed: json['endElapsed'] as int? ?? 0,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'exerciseName': exerciseName,
-        'durationSeconds': durationSeconds,
-        'sets': sets.map((e) => e.toJson()).toList(),
-        'endElapsed': endElapsed,
       };
 }
 
@@ -230,6 +199,7 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
   String? editingTemplateId;
   Screen editReturn = Screen.workouts;
   String? selectedExerciseName;
+  int? selectedSessionIndex;
   bool loaded = false;
 
   final AuthService? _auth;
@@ -491,6 +461,18 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
   void closeExerciseDetail() {
     selectedExerciseName = null;
     screen = Screen.exercises;
+    notifyListeners();
+  }
+
+  void openSessionDetail(int index) {
+    selectedSessionIndex = index;
+    screen = Screen.sessionDetail;
+    notifyListeners();
+  }
+
+  void closeSessionDetail() {
+    selectedSessionIndex = null;
+    screen = Screen.stats;
     notifyListeners();
   }
 
@@ -972,6 +954,7 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
         xpEarned: xpEarned,
         onPace: onPace,
         templateId: templateId,
+        completedExercises: completedExercises,
       ),
     );
     if (data.history.length > 50) {
