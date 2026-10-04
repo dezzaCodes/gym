@@ -883,9 +883,9 @@ void main() {
     expect(find.byType(LineChart), findsOneWidget);
 
     // Legend shows one entry per date (colors distinguish sessions now that
-    // set number is the x-axis).
-    expect(find.text('01-01'), findsOneWidget);
-    expect(find.text('01-08'), findsOneWidget);
+    // set number is the x-axis), in Australian day/month order.
+    expect(find.text('01/Jan'), findsOneWidget);
+    expect(find.text('08/Jan'), findsOneWidget);
   });
 
   testWidgets('exercise chart gives same-day repeats their own line instead of merging them', (
@@ -910,8 +910,8 @@ void main() {
     // Still one chart widget, but two distinct, separately labeled lines —
     // neither occurrence's data is dropped or merged into the other.
     expect(find.byType(LineChart), findsOneWidget);
-    expect(find.text('01-01 #1'), findsOneWidget);
-    expect(find.text('01-01 #2'), findsOneWidget);
+    expect(find.text('01/Jan #1'), findsOneWidget);
+    expect(find.text('01/Jan #2'), findsOneWidget);
   });
 
   testWidgets('workouts is reachable from bottom navigation and start/random stay pinned', (

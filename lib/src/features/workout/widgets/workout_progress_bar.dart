@@ -173,56 +173,49 @@ class WorkoutProgressBar extends StatelessWidget {
             },
           ),
         ),
-        if (chunks.any((c) => c.isRest))
+        if (chunks.any((c) => c.isRest) || (currentPaceFraction != null && paceLabel != null))
           Padding(
             padding: const EdgeInsets.only(top: 4),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(width: 8, height: 8, color: fillColor),
-                const SizedBox(width: 4),
-                const Text('Exercise', style: TextStyle(fontSize: 10, color: AppColors.textMuted)),
-                const SizedBox(width: 12),
-                // Matches how a rest stretch actually looks on the bar:
-                // the same fill color, dimmed by the same overlay.
-                Stack(
-                  children: [
-                    Container(width: 8, height: 8, color: fillColor),
-                    Container(width: 8, height: 8, color: AppColors.background.withValues(alpha: 0.55)),
-                  ],
-                ),
-                const SizedBox(width: 4),
-                const Text('Rest', style: TextStyle(fontSize: 10, color: AppColors.textMuted)),
-              ],
-            ),
-          ),
-        if (currentPaceFraction != null && paceLabel != null)
-          Padding(
-            padding: const EdgeInsets.only(top: 4),
-            child: SizedBox(
-              height: 16,
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  final paceLabelStyle = TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: paceLabelColor);
-                  final labelWidth = (TextPainter(
-                    text: TextSpan(text: paceLabel, style: paceLabelStyle),
-                    textDirection: TextDirection.ltr,
-                  )..layout())
-                      .width;
-                  final maxLeft = math.max(0.0, constraints.maxWidth - labelWidth);
-                  final left = (constraints.maxWidth * currentPaceFraction! - labelWidth / 2).clamp(0.0, maxLeft);
-                  return Stack(
+                if (chunks.any((c) => c.isRest))
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      AnimatedPositioned(
-                        duration: const Duration(milliseconds: 400),
-                        curve: Curves.easeOut,
-                        left: left,
-                        child: Text(paceLabel!, style: paceLabelStyle),
+                      Container(width: 8, height: 8, color: fillColor),
+                      const SizedBox(width: 4),
+                      const Text('Exercise', style: TextStyle(fontSize: 10, color: AppColors.textMuted)),
+                      const SizedBox(width: 12),
+                      // Matches how a rest stretch actually looks on the bar:
+                      // the same fill color, dimmed by the same overlay.
+                      Stack(
+                        children: [
+                          Container(width: 8, height: 8, color: fillColor),
+                          Container(width: 8, height: 8, color: AppColors.background.withValues(alpha: 0.55)),
+                        ],
+                      ),
+                      const SizedBox(width: 4),
+                      const Text('Rest', style: TextStyle(fontSize: 10, color: AppColors.textMuted)),
+                    ],
+                  )
+                else
+                  const SizedBox.shrink(),
+                if (currentPaceFraction != null && paceLabel != null)
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // The same color as the current-pace marker drawn on
+                      // the bar itself, so it reads as "this is that".
+                      Container(width: 8, height: 8, color: AppColors.text),
+                      const SizedBox(width: 4),
+                      Text(
+                        paceLabel!,
+                        style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: paceLabelColor),
                       ),
                     ],
-                  );
-                },
-              ),
+                  ),
+              ],
             ),
           ),
       ],
