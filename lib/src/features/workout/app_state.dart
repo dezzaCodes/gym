@@ -393,6 +393,23 @@ class WorkoutAppState extends ChangeNotifier with WidgetsBindingObserver {
     );
   }
 
+  /// Signs in with Google. Returns an error message, or null on success —
+  /// including when the user simply closes the account picker, which isn't
+  /// treated as a real error.
+  Future<String?> signInWithGoogle() async {
+    final auth = _auth;
+    if (auth == null) return 'Sync is not available in this build.';
+    try {
+      await auth.signInWithGoogle();
+      return null;
+    } catch (error) {
+      if (error is FirebaseAuthException && error.code == 'popup-closed-by-user') {
+        return null;
+      }
+      return error.toString();
+    }
+  }
+
   /// Sends a passwordless sign-in link to [email]. Returns an error message,
   /// or null on success.
   Future<String?> requestSyncLink(String email) async {

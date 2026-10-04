@@ -268,6 +268,18 @@ class _SyncSectionState extends State<_SyncSection> {
     });
   }
 
+  Future<void> _signInWithGoogle() async {
+    setState(() {
+      _busy = true;
+      _message = null;
+    });
+    final error = await widget.app.signInWithGoogle();
+    setState(() {
+      _busy = false;
+      _message = error;
+    });
+  }
+
   Future<void> _finishSignIn() async {
     final email = _emailController.text.trim();
     final link = _linkController.text.trim();
@@ -329,6 +341,13 @@ class _SyncSectionState extends State<_SyncSection> {
               child: const Text('Turn off sync'),
             ),
           ] else ...[
+            PrimaryButton(
+              onPressed: _busy ? null : _signInWithGoogle,
+              child: const Text('Sign in with Google'),
+            ),
+            const SizedBox(height: 14),
+            const Text('or by email', style: TextStyle(fontSize: 11, color: AppColors.textMuted)),
+            const SizedBox(height: 10),
             TextFormField(
               controller: _emailController,
               enabled: !_busy,
@@ -337,7 +356,7 @@ class _SyncSectionState extends State<_SyncSection> {
               decoration: ironFieldDecoration(hint: 'you@example.com'),
             ),
             const SizedBox(height: 10),
-            PrimaryButton(
+            SecondaryButton(
               onPressed: _busy ? null : _sendLink,
               child: Text(_linkSent ? 'Resend sign-in link' : 'Send sign-in link'),
             ),

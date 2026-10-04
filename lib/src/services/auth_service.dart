@@ -1,13 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-/// Passwordless (email link) authentication, used to identify the same
-/// person across devices so their data can sync via [CloudWorkoutRepository].
+/// Identifies the same person across devices so their data can sync via
+/// [CloudWorkoutRepository] — either by signing in with Google, or via a
+/// passwordless email link as a fallback for people without a Google
+/// account handy.
 ///
-/// This intentionally avoids relying on platform deep-linking: the sign-in
-/// link is emailed to the user, and they paste it back into the app to
-/// finish signing in. That works without a Firebase Hosting domain or native
-/// Universal Links / App Links configuration.
+/// The email-link path intentionally avoids relying on platform
+/// deep-linking: the sign-in link is emailed to the user, and they paste it
+/// back into the app to finish signing in. That works without a Firebase
+/// Hosting domain or native Universal Links / App Links configuration.
 class AuthService {
   AuthService({FirebaseAuth? auth}) : _auth = auth ?? FirebaseAuth.instance;
 
@@ -16,6 +18,13 @@ class AuthService {
   Stream<User?> get authStateChanges => _auth.authStateChanges();
 
   User? get currentUser => _auth.currentUser;
+
+  /// `signInWithProvider` (rather than the web-only `signInWithPopup`)
+  /// works the same way across web, Android, and iOS with no extra
+  /// platform-native Google Sign-In package needed.
+  Future<UserCredential> signInWithGoogle() {
+    return _auth.signInWithProvider(GoogleAuthProvider());
+  }
 
   Future<void> sendSignInLink(String email) {
     final projectId = Firebase.app().options.projectId;
