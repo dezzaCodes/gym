@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 /// Identifies the same person across devices so their data can sync via
 /// [CloudWorkoutRepository] — either by signing in with Google, or via a
@@ -19,11 +20,12 @@ class AuthService {
 
   User? get currentUser => _auth.currentUser;
 
-  /// `signInWithProvider` (rather than the web-only `signInWithPopup`)
-  /// works the same way across web, Android, and iOS with no extra
-  /// platform-native Google Sign-In package needed.
+  /// `signInWithProvider` is the cross-platform method on Android and iOS,
+  /// but the web platform package only implements the popup/redirect-based
+  /// flow — calling `signInWithProvider` there throws "not implemented".
   Future<UserCredential> signInWithGoogle() {
-    return _auth.signInWithProvider(GoogleAuthProvider());
+    final provider = GoogleAuthProvider();
+    return kIsWeb ? _auth.signInWithPopup(provider) : _auth.signInWithProvider(provider);
   }
 
   Future<void> sendSignInLink(String email) {
